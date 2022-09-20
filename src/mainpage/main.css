@@ -1,0 +1,59 @@
+.login{
+    font-size: 14px;
+    color: black;
+    text-decoration: none;
+  }
+.writebtn{
+  background-color: #4F60FF;
+  border: none;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 50px;
+  right: 200px;
+}
+.writeimg{
+  width: 20px;
+}
+section{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.list{
+  display: flex;
+  flex-wrap: wrap;
+  width: 700px;
+}
+li{
+  list-style: none;
+  border: 1px solid #F6F6F6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  width: 300px;
+  height: 120px;
+  border-radius: 5px;
+  margin-right: 50px;
+  margin-top: 30px;
+  padding-left: 20px;
+}
+li:hover{
+  border: 3px solid #4F60FF;
+}
+.title{
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.contents, .date{
+  color: #9B9B9B;
+  font-size: 12px;
+}
+.nickname{
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: 20px;
+}
+.date{
+  margin-top: 4px;
+}
