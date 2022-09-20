@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reviewWrite.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="globalStyle.css" />
+    <title>Memoir</title>
+  </head>
+  <body>
+    <form action="" method="post" class="mainContent">
+      <ul class="titleBox">
+        <div class="titleTitle">
+          <div id="titleLine"></div>
+          <li id="title">제목</li>
+        </div>
+        <br />
+        <input
+          type="text"
+          name="title"
+          maxlength="30"
+          id="titleInput"
+          placeholder="제목을 작성해 주세요"
+          onfocus="this.placeholder = ''"
+          onblur="this.placeholder = '제목을 작성해 주세요'"
+        />
+      </ul>
+      <ul class="goalBox">
+        <div class="goalTitle">
+          <div id="goalLine"></div>
+          <li id="goal">목표</li>
+        </div>
+        <br />
+        <input
+          type="text"
+          name="goal"
+          maxlength="50"
+          id="goalInput"
+          placeholder="목표를 작성해 주세요"
+          onfocus="this.placeholder = ''"
+          onblur="this.placeholder = '목표를 작성해 주세요'"
+        />
+      </ul>
+      <ul class="learnedBox">
+        <div class="learnedTitle">
+          <div id="learnedLine"></div>
+          <li id="learned">배운점</li>
+        </div>
+        <br />
+        <input
+          type="text"
+          name="learned"
+          maxlength="3000"
+          id="learnedInput"
+          placeholder="배운점을 작성해 주세요"
+          onfocus="this.placeholder = ''"
+          onblur="this.placeholder = '배운점을 작성해 주세요'"
+        />
+      </ul>
+      <ul class="feltBox">
+        <div class="feltTitle">
+          <div id="feltLine"></div>
+          <li id="felt">느낀점</li>
+        </div>
+        <br />
+        <input
+          type="text"
+          name="felt"
+          maxlength="100"
+          id="feltInput"
+          placeholder="느낀점을 작성해 주세요"
+          onfocus="this.placeholder = ''"
+          onblur="this.placeholder = '느낀점을 작성해 주세요'"
+        />
+      </ul>
+      <ul class="nextGoalBox">
+        <div class="nextGoalTitle">
+          <div id="nextGoalLine"></div>
+          <li id="nextGoal">다음 주에 할 일</li>
+        </div>
+        <br />
+        <input
+          type="text"
+          name="nextGoal"
+          maxlength="50"
+          id="nextGoalInput"
+          placeholder="다음 주에 할 일을 작성해 주세요"
+          onfocus="this.placeholder = ''"
+          onblur="this.placeholder = '다음 주에 할 일을 작성해 주세요'"
+        />
+      </ul>
+      <button type="submit">등록</button>
+    </form>
+  </body>
+</html>

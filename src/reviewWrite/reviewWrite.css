@@ -1,0 +1,150 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+ul {
+  padding: 0px;
+  margin: 50px 0px;
+}
+
+li {
+  list-style: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: default;
+}
+
+body {
+  text-align: center;
+  width: 98.9vw;
+}
+
+form {
+  justify-content: center;
+}
+
+input {
+  width: 700px;
+  height: 45px;
+  padding: 0px 10px;
+  border: #e0e7ec 1px solid;
+  border-radius: 7px;
+  outline: none;
+}
+
+button {
+  padding: 10px 40px;
+  border-radius: 30px;
+  border: #4f60ff 2px solid;
+  color: #4f60ff;
+  background-color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0px 0px 30px 600px;
+}
+
+.titleTitle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+#titleLine {
+  border: #4f60ff 1.07px solid;
+  border-radius: 10px;
+  width: 1px;
+  height: 15px;
+  background-color: #4f60ff;
+}
+
+#title {
+  width: 32px;
+  height: 21.6px;
+  margin: 0px 675px 0px 5px;
+}
+
+.goalTitle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+#goalLine {
+  border: #4f60ff 1.07px solid;
+  border-radius: 10px;
+  width: 1px;
+  height: 15px;
+  background-color: #4f60ff;
+}
+
+#goal {
+  width: 32px;
+  height: 21.6px;
+  margin: 0px 675px 0px 5px;
+}
+
+.learnedTitle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+#learnedLine {
+  border: #4f60ff 1.07px solid;
+  border-radius: 10px;
+  width: 1px;
+  height: 15px;
+  background-color: #4f60ff;
+}
+
+#learned {
+  width: 48px;
+  height: 21.6px;
+  margin: 0px 660px 0px 5px;
+}
+
+.feltTitle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+#feltLine {
+  border: #4f60ff 1.07px solid;
+  border-radius: 10px;
+  width: 1px;
+  height: 15px;
+  background-color: #4f60ff;
+}
+
+#felt {
+  width: 48px;
+  height: 21.6px;
+  margin: 0px 660px 0px 5px;
+}
+
+.nextGoalTitle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+#nextGoalLine {
+  border: #4f60ff 1.07px solid;
+  border-radius: 10px;
+  width: 1px;
+  height: 15px;
+  background-color: #4f60ff;
+}
+
+#nextGoal {
+  width: 112.88px;
+  height: 21.6px;
+  margin: 0px 595px 0px 5px;
+}

@@ -1,0 +1,86 @@
+.login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+
+  width: 468px;
+  background: #F5F5F5;
+  border: 1px solid rgba(156, 156, 156, 0.2);
+  border-radius: 16px;
+}
+
+.title{
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 52px;
+
+  margin-top: 28px;
+}
+.desc{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+button{
+  border: 1px solid rgba(156, 156, 156, 0.2);
+  border-radius: 8px;
+  padding:6px 26px;
+  transition: filter 0.2s;
+}
+
+button:hover{
+  filter: brightness(0.85);
+  transition: filter 0.2s;
+}
+
+.loginButton{
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 29px;
+
+  background-color: #4F4EED;
+  color: #fff;
+
+  margin-top: 40px;
+  margin-bottom: 12px;
+}
+.signupButton{
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 29px;
+
+  background-color: #D4D4D4;
+  margin-bottom: 28px;
+}
+
+#idInputDiv, #passwordInputDiv{
+  background: #FFFFFF;
+  border: 1px solid rgba(156, 156, 156, 0.2);
+  border-radius: 8px;
+
+  width: 396px;
+  height: 53px;
+  padding: 12px;
+}
+#idInputDiv > input, #passwordInputDiv > input{
+  border: none;
+  width: 100%;
+  height: 100%;
+  line-height: 100%;
+  background: none;
+  outline: none;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+#idInputDiv{
+  margin-top: 44px;
+  margin-bottom: 12px;
+}
