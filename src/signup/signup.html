@@ -23,21 +23,27 @@
         <a href="../login/login.html" class="login">로그인</a>
       </div>
     </header>
+
     <div class="signup">
       <p class="title">회원가입</p>
-      <div class="id">
-        <p>아이디</p>
-        <input type="text" class="idInput" />
-      </div>
-      <div class="password">
-        <p>비밀번호</p>
-        <input type="password" class="passwordInput" />
-      </div>
+
       <div class="nickname">
-        <p>닉네임</p>
-        <input type="text" class="nicknameInput" />
+        <input type="text" class="nicknameInput" placeholder="이름"/>
       </div>
-      <button type="submit" class="signupButton">계정 만들기</button>
+
+      <div class="id">
+        <input type="text" class="idInput" placeholder="아이디"/>
+      </div>
+
+      <div class="password">
+        <input type="password" class="passwordInput" placeholder="비밀번호"/>
+      </div>
+
+      <div class="password passwordCheck">
+        <input type="password" class="passwordCheckInput" placeholder="비밀번호 확인"/>
+      </div>
+
+      <button type="submit" class="signupButton">회원가입</button>
     </div>
     <script src="index.js"/>
   </body>
