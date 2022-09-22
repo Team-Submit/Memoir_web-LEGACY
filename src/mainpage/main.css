@@ -1,59 +1,62 @@
-.login{
-    font-size: 14px;
-    color: black;
-    text-decoration: none;
-  }
-.writebtn{
-  background-color: #4F60FF;
-  border: none;
-  border-radius: 100%;
-  width: 40px;
-  height: 40px;
-  position: fixed;
-  bottom: 50px;
-  right: 200px;
-}
-.writeimg{
-  width: 20px;
-}
 section{
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 .list{
   display: flex;
   flex-wrap: wrap;
-  width: 700px;
+  width: 1030px;
 }
 li{
   list-style: none;
   border: 1px solid #F6F6F6;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-  width: 300px;
-  height: 120px;
+  width: 320px;
+  height: 150px;
   border-radius: 5px;
-  margin-right: 50px;
-  margin-top: 30px;
+  margin: 10px;
   padding-left: 20px;
 }
 li:hover{
   border: 3px solid #4F60FF;
 }
+.di{
+  width: 250px;
+}
 .title{
-  font-size: 16px;
   font-weight: bold;
   margin-top: 10px;
 }
-.contents, .date{
-  color: #9B9B9B;
+.contents{
+  font-size: 12px;
+  color: #454545;
+}
+.nida{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+.date, .nickname{
   font-size: 12px;
 }
 .nickname{
   font-weight: bold;
-  font-size: 12px;
-  margin-top: 20px;
+  margin-right: 10px;
 }
-.date{
-  margin-top: 4px;
+.circle{
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: #D9D9D9;
+  border: 1px solid #D9D9D9;
+}
+.write{
+  display: flex;
+}
+.data{
+  color: #757575;
+}
+.nickname{
+  color: #5E5E5E;
 }
