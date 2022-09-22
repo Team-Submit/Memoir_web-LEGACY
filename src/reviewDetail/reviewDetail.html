@@ -4,13 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>memoir</title>
+    <link rel="icon" href="../assets/Group 61.png" />
+    <title>Memoir</title>
     <link rel="stylesheet" href="./reviewDetail.css" />
     <link rel="stylesheet" href="../globalStyle.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap"
-    />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
@@ -19,50 +16,44 @@
   <body>
     <header>
       <div class="container">
-        <div class="logo">Memoir</div>
-        <div class="login">로그인</div>
+        <div class="bata">
+          <img src="../assets/Memoir.svg" class="logo"/>
+          <a href="../mainpage/main.html" class="bar1">회고록</a>
+          <a href="../Todo/Todo.html" class="bar2">할 일</a>
+          <a href="../mypage/mypage.html" class="bar3">마이페이지</a>
+        </div>
+        <button onclick="location.href='../registration/registration.html'" class="textreg">글쓰기</button>
       </div>
     </header>
-    <div class="RDcontainer">
-      <div class="section">
-        <header id="title">
-          <div class="line"></div>
-          <h2 id="reviewTitle">프로젝트 디자인을 하루만에?</h2>
-        </header>
-        <div class="desc">
-          <li id="userName">강은빈</li>
-          <li id="day">2022년 7월 8일</li>
-        </div>
-        <article class="goal">
-          <img src="../img/bookmark.png" alt="책갈피" />
-          <h4 id="thisGoal">이번 주의 목표</h4>
-          <li id="gDsc">저의 이번 주 목표~</li>
-        </article>
-        <ul class="learn">
-          <div class="flex">
-            <div class="frontLine"></div>
-            <h4 id="learned">배운점</h4>
-          </div>
-          <li id="lDsc">이번에 배우게 된 점은~</li>
-          <div class="dLine"></div>
-        </ul>
-        <ul class="feel">
-          <div class="flex">
-            <div class="frontLine"></div>
-            <h4 id="felt">느낀점</h4>
-          </div>
-          <li id="fDsc">이번에 느낀 점은~</li>
-          <div class="dLine"></div>
-        </ul>
-        <ul class="nGoal">
-          <div class="flex">
-            <div class="frontLine"></div>
-            <h4 id="nextGoal">다음 주의 할 일</h4>
-          </div>
-          <li id="nDsc">제 다음 목표는~</li>
-          <div class="dLine"></div>
+    <script src="index.js"></script>
+    <div class="rdContent">
+      <div class="titleBox">
+        <pre id="title">회고 제목을 입력</pre>
+        <ul class="info">
+          <li id="userName">김민채</li>
+          <div id="titleLine">|</div>
+          <li id="date">2022년 09월 20일</li>
         </ul>
       </div>
+      <div id="tUnderLine"></div>
+      <article class="review">
+        <ul class="goalBox">
+          <li id="goalTitle">🚩 오늘의 목표</li>
+          <pre id="goal">안 죽기</pre>
+        </ul>
+        <ul class="learnedBox">
+          <li id="learnedTitle">✒️ 배운 것</li>
+          <pre id="learned">백덤블링 하는 방법</pre>
+        </ul>
+        <ul class="feltBox">
+          <li id="feltTitle">❗ 느낀 점</li>
+          <pre id="felt">“콰아아아아” 투명드래곤이 브레쓰를 뿜엇따.</pre>
+        </ul>
+        <ul class="nextGoalBox">
+          <li id="nextGoalTitle">🗺️ 다음 주의 목표</li>
+          <pre id="nextGoal">숨 쉬기</pre>
+        </ul>
+      </article>
     </div>
   </body>
 </html>
