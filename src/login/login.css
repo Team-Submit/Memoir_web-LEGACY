@@ -95,5 +95,10 @@ button:hover{
   margin-left: 12px;
   color: red;
   font-weight: 500;
-  display: none;
+  font-size: 14px;
+  cursor: default;
+}
+
+.transparent{
+  opacity: 0;
 }

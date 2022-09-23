@@ -9,11 +9,11 @@ const loginInputWarn = document.getElementsByClassName("warnText");
 function isLoginBlank(){
     if(loginIdInput.value.length==0){
         loginIdDiv.classList.add("warn");
-        loginInputWarn[0].style.display = "block";
+        loginInputWarn[0].classList.remove('transparent');
     }
     else if(loginPasswordInput.value.length==0){
         loginPasswordDiv.classList.add("warn");
-        loginInputWarn[1].style.display = "block";
+        loginInputWarn[1].classList.remove('transparent');
     }
 }
 
