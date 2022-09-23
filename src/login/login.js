@@ -20,6 +20,7 @@ function isLoginBlank(){
 }
 
 loginLoginBtn.addEventListener('click',isLoginBlank);
+
 loginIdInput.addEventListener('change',function(){
     loginInputWarn[0].classList.add('transparent');
     loginIdDiv.classList.remove("warn");
@@ -28,3 +29,5 @@ loginPasswordInput.addEventListener('change',function(){
     loginInputWarn[0].classList.add('transparent');
     loginIdDiv.classList.remove("warn");
 });
+
+loginMoveToSignUp.addEventListener("click",function(){location.replace("../signup/signup.html")});
