@@ -8,6 +8,7 @@ const loginInputWarn = document.getElementsByClassName("warnText");
 
 const loginMoveToSignUp = document.getElementById("signupButton");
 
+/** ID&비밀번호 내용이 있는지를 구분해 경고 주는 팡션 */
 function isLoginBlank(){
     if(loginIdInput.value.length==0){
         loginIdDiv.classList.add("warn");
@@ -21,12 +22,13 @@ function isLoginBlank(){
 
 loginLoginBtn.addEventListener('click',isLoginBlank);
 
+/** ID와 비밀번호  */
 loginIdInput.addEventListener('change',function(){
     loginInputWarn[0].classList.add('transparent');
     loginIdDiv.classList.remove("warn");
 });
 loginPasswordInput.addEventListener('change',function(){
-    loginInputWarn[0].classList.add('transparent');
+    loginInputWarn[1].classList.add('transparent');
     loginIdDiv.classList.remove("warn");
 });
 
