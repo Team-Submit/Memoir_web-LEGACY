@@ -2,12 +2,18 @@ const loginIdInput = document.getElementById("idInput");
 const loginPasswordInput = document.getElementById("passwordInput");
 const loginLoginBtn = document.getElementById("loginButton");
 
+const loginIdDiv = document.getElementById("idInputDiv");
+const loginPasswordDiv = document.getElementById("passwordInputDiv");
+const loginInputWarn = document.getElementsByClassName("warnText");
+
 function isLoginBlank(){
     if(loginIdInput.value.length==0){
-        alert("ID를 입력해야 합니다");
+        loginIdDiv.classList.add("warn");
+        loginInputWarn[0].style.display = "block";
     }
     else if(loginPasswordInput.value.length==0){
-        alert("비밀번호를 입력해야 합니다");
+        loginPasswordDiv.classList.add("warn");
+        loginInputWarn[1].style.display = "block";
     }
 }
 
