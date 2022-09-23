@@ -31,20 +31,21 @@
 
       <div class="id">
         <div id="idInputDiv">
-          <input type="text" placeholder="아이디" class="idInput" />
+          <input type="text" placeholder="아이디" id="idInput" />
         </div>
-        
+        <p id="warnID" class="warnText transparent">아이디를 입력해 주세요</p>
       </div>
 
       <div class="password">
         <div id="passwordInputDiv">
-          <input type="password" placeholder="비밀번호" class="passwordInput" />
+          <input type="password" placeholder="비밀번호" id="passwordInput" />
         </div>
+        <p id="warnPassword" class="warnText transparent">비밀번호를 입력해 주세요</p>
       </div>
 
-      <button type="submit" class="loginButton">로그인</button>
-      <button href="../signup/signup.html" class="signupButton">회원가입</button>
+      <button type="submit" id="loginButton">로그인</button>
+      <button id="signupButton">회원가입</button>
     </div>
-    <script src="index.js"></script>
+    <script src="login.js"></script>
   </body>
 </html>
