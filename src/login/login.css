@@ -38,7 +38,7 @@ button:hover{
   transition: filter 0.2s;
 }
 
-.loginButton{
+#loginButton{
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
