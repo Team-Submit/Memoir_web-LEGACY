@@ -6,6 +6,8 @@ const loginIdDiv = document.getElementById("idInputDiv");
 const loginPasswordDiv = document.getElementById("passwordInputDiv");
 const loginInputWarn = document.getElementsByClassName("warnText");
 
+const loginMoveToSignUp = document.getElementById("signupButton");
+
 function isLoginBlank(){
     if(loginIdInput.value.length==0){
         loginIdDiv.classList.add("warn");
@@ -18,3 +20,11 @@ function isLoginBlank(){
 }
 
 loginLoginBtn.addEventListener('click',isLoginBlank);
+loginIdInput.addEventListener('change',function(){
+    loginInputWarn[0].classList.add('transparent');
+    loginIdDiv.classList.remove("warn");
+});
+loginPasswordInput.addEventListener('change',function(){
+    loginInputWarn[0].classList.add('transparent');
+    loginIdDiv.classList.remove("warn");
+});
