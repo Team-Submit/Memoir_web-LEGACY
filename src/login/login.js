@@ -13,10 +13,23 @@ function isLoginBlank(){
     if(loginIdInput.value.length==0){
         loginIdDiv.classList.add("warn");
         loginInputWarn[0].classList.remove('transparent');
+        return true;
     }
     else if(loginPasswordInput.value.length==0){
         loginPasswordDiv.classList.add("warn");
         loginInputWarn[1].classList.remove('transparent');
+        return true;
+    }
+    else if(loginPasswordInput.value.length!=0&&loginIdInput.value.length!=0){
+        return false;
+    }
+}
+
+function loginServerPost(){
+    if(!isLoginBlank()){
+        axios({
+            
+        })
     }
 }
 
@@ -30,5 +43,5 @@ loginPasswordInput.addEventListener('change',function(){
     loginIdDiv.classList.remove("warn");
 });
 
-loginLoginBtn.addEventListener('click',isLoginBlank);
+loginLoginBtn.addEventListener('click',loginServerPost);
 loginMoveToSignUp.addEventListener("click",function(){location.replace("../signup/signup.html")});
