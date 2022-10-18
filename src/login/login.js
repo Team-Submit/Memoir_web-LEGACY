@@ -20,9 +20,7 @@ function isLoginBlank(){
     }
 }
 
-loginLoginBtn.addEventListener('click',isLoginBlank);
-
-/** ID와 비밀번호  */
+/** ID와 비밀번호 변경을 감지해 경고를 지워주는 팡션 */
 loginIdInput.addEventListener('change',function(){
     loginInputWarn[0].classList.add('transparent');
     loginIdDiv.classList.remove("warn");
@@ -32,4 +30,5 @@ loginPasswordInput.addEventListener('change',function(){
     loginIdDiv.classList.remove("warn");
 });
 
+loginLoginBtn.addEventListener('click',isLoginBlank);
 loginMoveToSignUp.addEventListener("click",function(){location.replace("../signup/signup.html")});
