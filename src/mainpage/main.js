@@ -13,9 +13,3 @@ function logingo(){
 function reviewDetail(){
     location.href = '../reviewDetail/reviewDetail.html'
 }
-
-axios.get(baseurl,{
-    
-}){
-
-}
