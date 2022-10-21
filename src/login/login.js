@@ -7,7 +7,8 @@ const loginPasswordDiv = document.getElementById("passwordInputDiv");
 const loginInputWarn = document.getElementsByClassName("warnText");
 
 const loginMoveToSignUp = document.getElementById("signupButton");
-const BASEURL = 'http://baseu.rl'
+//const BASEURL = 'http://192.168.137.87:8081';
+axios.defaults.baseURL = 'http://192.168.137.87:8081';
 
 /** ID&비밀번호 내용이 있는지를 구분해 경고 주는 팡션 */
 function isLoginBlank(){
@@ -27,14 +28,13 @@ function isLoginBlank(){
 }
 
 function loginServerPost(){
-    if(!isLoginBlank()){
+    if(isLoginBlank()==false){
         axios({
-            method:`post`,
-            baseurl: BASEURL,
-            url:'/users/login',
+            method:'post',
+            url:`/auth/login`,
             data:{
-                userId: loginIdDiv.value,
-                password: loginPasswordDiv.value, 
+                "accountId": loginIdInput.value,
+                "password": loginPasswordInput.value,   
             }
         })
     }
@@ -47,7 +47,7 @@ loginIdInput.addEventListener('change',function(){
 });
 loginPasswordInput.addEventListener('change',function(){
     loginInputWarn[1].classList.add('transparent');
-    loginIdDiv.classList.remove("warn");
+    passwordInputDiv.classList.remove("warn");
 });
 
 loginLoginBtn.addEventListener('click',loginServerPost);
