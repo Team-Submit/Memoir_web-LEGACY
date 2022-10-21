@@ -29,7 +29,6 @@
         </button>
       </div>
     </header>
-    <script src="index.js"></script>
     <div class="rdContent">
       <div class="titleBox">
         <pre id="title">회고 제목을 입력</pre>
@@ -64,24 +63,25 @@
       </article>
       <div id="tUnderLine"></div>
       <article class="feedback">
-        <form action="" method="post" class="cmntBox">
+        <div class="cmntBox">
           <input
             type="text"
             id="cmnt"
+            autocomplete="off"
             placeholder="댓글 내용"
             onfocus="this.placeholder = ''"
             onblur="this.placeholder = '댓글 내용'"
           />
-          <button type="submit" id="submit">작성</button>
-        </form>
+          <button id="reply">작성</button>
+        </div>
         <ul class="feedbackBox">
           <ol class="otherNameBox">
-            <img src="../assets/comment.svg" alt="ㄴ" id="nien" />
+            <img src="../assets/comment.svg" alt="ㄴ" class="nien" />
             <li id="otherName">남궁제갈민수</li>
             <div class="a">
-              <a href="" id="revise">수정</a>
+              <a id="revise">수정</a>
               <li id="line">|</li>
-              <a href="" id="cmntDelete">삭제</a>
+              <a id="cmntDelete">삭제</a>
             </div>
           </ol>
           <li id="feedbackCnt">
@@ -90,5 +90,7 @@
         </ul>
       </article>
     </div>
+    <script src="./reviewDetail.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </body>
 </html>
