@@ -76,3 +76,8 @@
   cursor: default;
   width: 374px;
 }
+
+.warnborder{
+  border: 2px solid red !important;
+  transition: border 0.25s;
+}
