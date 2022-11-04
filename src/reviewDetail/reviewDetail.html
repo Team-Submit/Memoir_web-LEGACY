@@ -12,48 +12,83 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <header>
       <div class="container">
         <div class="bata">
-          <img src="../assets/Memoir.svg" class="logo"/>
+          <img src="../assets/Memoir.svg" class="logo" />
           <a href="../mainpage/main.html" class="bar1">회고록</a>
-          <a href="../Todo/Todo.html" class="bar2">할 일</a>
           <a href="../mypage/mypage.html" class="bar3">마이페이지</a>
         </div>
-        <button onclick="location.href='../registration/registration.html'" class="textreg">글쓰기</button>
+        <button
+          onclick="location.href='../registration/registration.html'"
+          class="textreg"
+        >
+          글쓰기
+        </button>
       </div>
     </header>
-    <script src="index.js"></script>
     <div class="rdContent">
       <div class="titleBox">
-        <pre id="title">회고 제목을 입력</pre>
+        <pre id="title"></pre>
         <ul class="info">
-          <li id="userName">김민채</li>
+          <li id="userName"></li>
           <div id="titleLine">|</div>
-          <li id="date">2022년 09월 20일</li>
+          <li id="date"></li>
         </ul>
       </div>
       <div id="tUnderLine"></div>
       <article class="review">
         <ul class="goalBox">
           <li id="goalTitle">🚩 오늘의 목표</li>
-          <pre id="goal">안 죽기</pre>
+          <pre id="goal"></pre>
         </ul>
         <ul class="learnedBox">
           <li id="learnedTitle">✒️ 배운 것</li>
-          <pre id="learned">백덤블링 하는 방법</pre>
+          <pre id="learned"></pre>
         </ul>
         <ul class="feltBox">
           <li id="feltTitle">❗ 느낀 점</li>
-          <pre id="felt">“콰아아아아” 투명드래곤이 브레쓰를 뿜엇따.</pre>
+          <pre id="felt"></pre>
         </ul>
         <ul class="nextGoalBox">
           <li id="nextGoalTitle">🗺️ 다음 주의 목표</li>
-          <pre id="nextGoal">숨 쉬기</pre>
+          <pre id="nextGoal"></pre>
+        </ul>
+        <div class="button">
+          <button type="submit" id="edit">수정</button>
+          <button type="submit" id="delete">삭제</button>
+        </div>
+      </article>
+      <div id="tUnderLine"></div>
+      <article class="feedback">
+        <div class="cmntBox">
+          <input
+            type="text"
+            id="cmnt"
+            autocomplete="off"
+            placeholder="댓글 내용"
+            onfocus="this.placeholder = ''"
+            onblur="this.placeholder = '댓글 내용'"
+          />
+          <button id="reply">작성</button>
+        </div>
+        <ul class="feedbackBox">
+          <ol class="otherNameBox">
+            <img src="../assets/comment.svg" alt="ㄴ" class="nien" />
+            <li id="otherName"></li>
+            <div class="a">
+              <a id="revise">수정</a>
+              <li id="line">|</li>
+              <a id="cmntDelete">삭제</a>
+            </div>
+          </ol>
+          <li id="feedbackCnt"></li>
         </ul>
       </article>
     </div>
+    <script src="./reviewDetail.js"></script>
   </body>
 </html>

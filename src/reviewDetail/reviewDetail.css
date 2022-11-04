@@ -7,14 +7,9 @@ pre {
   word-break: break-all;
 }
 
-body {
-  width: 100vw;
-  height: 100vh;
-}
-
 .rdContent {
   width: 1000px;
-  margin: 60px auto;
+  margin: 60px auto 40px;
 }
 
 .titleBox {
@@ -98,4 +93,97 @@ body {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+.button {
+  margin: 0 0 18px;
+}
+
+button {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 15px;
+  border: 1px solid rgba(156, 156, 156, 0.2);
+  border-radius: 5px;
+  background-color: #d4d4d4;
+  cursor: pointer;
+}
+
+#edit {
+  margin-right: 3px;
+}
+
+.feedback {
+  margin: 18px 0;
+}
+
+form {
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#cmnt {
+  width: 935px;
+  height: 35px;
+  font-size: 14px;
+  font-weight: bold;
+  outline: none;
+  background-color: #f6f6f6;
+  border: 1px solid rgba(156, 156, 156, 0.2);
+  border-radius: 5px;
+  padding: 0 7px;
+}
+
+#submit {
+  font-size: 14px;
+  width: 60px;
+  height: 30px;
+  background-color: #4f4eed;
+  border: 1px solid rgba(156, 156, 156, 0.2);
+  color: white;
+}
+
+.feedbackBox {
+  background-color: #f6f6f6;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 7px;
+}
+
+.otherNameBox {
+  display: flex;
+  align-items: center;
+}
+
+.nien {
+  width: 10px;
+  margin-right: 5px;
+}
+
+#otherName {
+  font-weight: bold;
+}
+
+.a {
+  display: flex;
+  margin-left: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #808080;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#line {
+  color: #808080;
+  margin: 0 3px;
+  font-size: 14px;
+}
+
+#feedbackCnt {
+  margin: 10px 0 0 15px;
 }
