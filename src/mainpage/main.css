@@ -64,11 +64,13 @@ li:hover{
 .contents{
   font-size: 12px;
   color: #454545;
+  height: 50px;
+  opacity: 0.7;
 }
 .nida{
   display: flex;
   justify-content: space-between;
-  margin-top: 40px;
+  margin-top: 25px;
 }
 .date, .nickname{
   font-size: 12px;
