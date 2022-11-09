@@ -30,12 +30,12 @@ button{
   border: 1px solid rgba(156, 156, 156, 0.2);
   border-radius: 8px;
   padding:6px 26px;
-  transition: filter 0.2s;
+  transition: all 0.2s;
 }
 
 button:hover{
   filter: brightness(0.85);
-  transition: filter 0.2s;
+  transition: all 0.2s;
 }
 
 #loginButton{
@@ -88,7 +88,7 @@ button:hover{
 
 .warn{
   border: 2px solid red !important;
-  transition: border 0.25s;
+  transition: all 0.25s;
 }
 
 .warnText{
