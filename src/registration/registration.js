@@ -13,7 +13,7 @@ function regPost() {
 
   axios
     .post(
-      "http://172.20.10.7:8080/memoir/write",
+      "/memoir/write",
       {
         headers: {
           "access-token": res.data.token,
