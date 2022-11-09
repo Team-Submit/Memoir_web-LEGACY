@@ -10,24 +10,35 @@ const loginMoveToSignUp = document.getElementById("signupButton");
 axios.defaults.baseURL = 'http://172.20.10.7:8080';
 
 /** ID&비밀번호 내용이 있는지를 구분해 경고 주는 팡션 */
-function isLoginBlank(){
+function inputWarnMaker(){
+    switch(blankScanner()){
+        case 'id':
+            loginIdDiv.classList.add("warn");
+            loginInputWarn[0].classList.remove('transparent');
+            break;
+        case 'passwd':
+            loginPasswordDiv.classList.add("warn");
+            loginInputWarn[1].classList.remove('transparent');
+            break;
+        case 'kimchi':
+            break;
+    }
+}
+
+function blankScanner(){
     if(loginIdInput.value.length==0){
-        loginIdDiv.classList.add("warn");
-        loginInputWarn[0].classList.remove('transparent');
-        return true;
+        return 'id';
     }
     else if(loginPasswordInput.value.length==0){
-        loginPasswordDiv.classList.add("warn");
-        loginInputWarn[1].classList.remove('transparent');
-        return true;
+        return 'passwd';
     }
     else if(loginPasswordInput.value.length!=0&&loginIdInput.value.length!=0){
-        return false;
+        return 'kimchi';
     }
 }
 
 function loginServerPost(){
-    if(isLoginBlank()==false){
+    if(blankScanner()==='kimchi'){
         axios({
             method:'post',
             url:`/auth/login`,
@@ -46,7 +57,7 @@ function loginServerPost(){
     }
 }
 
-/** ID와 비밀번호 변경을 감지해 경고를 지워주는 팡션 */
+/** ID와 비밀번호 변경을 감지해 경고를 지워주는 이벤-뜨 리스너 */
 loginIdInput.addEventListener('change',function(){
     loginInputWarn[0].classList.add('transparent');
     loginIdDiv.classList.remove("warn");
