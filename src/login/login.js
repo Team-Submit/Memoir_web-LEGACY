@@ -37,7 +37,7 @@ function loginServerPost(){
             }
         })
         .then(function(response){
-            console.log(response);
+            localStorage.setItem("accessTkn",response.access_token);
         })
         .catch(function(error){
             if(error.response.status===404) alert("아이디와 비밀번호를 확인해주세요");
