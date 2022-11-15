@@ -55,6 +55,9 @@ function loginServerPost(){
             else if(error.response.status===400) alert("알 수 없는 오류입니다. 고객센터는 없으니 어떡하죠")
         });
     }
+    else{
+        inputWarnMaker();
+    }
 }
 
 /** ID와 비밀번호 변경을 감지해 경고를 지워주는 이벤-뜨 리스너 */
