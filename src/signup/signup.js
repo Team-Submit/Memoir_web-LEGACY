@@ -49,6 +49,9 @@ function signUpServerPost(){
         axios({
         })
     }
+    else{
+        inputWarnMaker();
+    }
 }
 
 /** input 내용 변경을 감지해 경고 지우는 팡션 */
@@ -70,4 +73,4 @@ signUpPasswordReInput.addEventListener('change',function(){
 });
 
 
-signUpButton.addEventListener("click",isInputBlank);
+signUpButton.addEventListener("click",signUpServerPost);
