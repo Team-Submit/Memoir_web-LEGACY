@@ -65,6 +65,7 @@ function signUpServerPost(){
         .catch(function(error){
             if(error.response.status===409) alert("계정 정보가 중복됩니다.");
             else if(error.response.status===400) alert("알 수 없는 오류입니다. 고객센터는 없으니 어떡하죠");
+            else alert(`오류 (${error.response.status})`);
         })
     }
     else{
