@@ -6,30 +6,48 @@ const signUpWarntext = document.querySelectorAll(".warnText");
 const signUpInputDivs = document.querySelectorAll(".inputDiv");
 const signUpButton = document.querySelector(".signupButton");
 
-/** input에 내용이 있는지를 감지해 경고띄우는 펑션 */
-function isInputBlank(){
-    if(signUpNameInput.value.length<=0){
-        signUpWarntext[0].classList.remove('transparent');
-        signUpInputDivs[0].classList.add('warnborder');
-        return true;
+function inputWarnMaker(){
+    switch(blankScanner()){
+        case 'id':
+            signUpWarntext[0].classList.remove('transparent');
+            signUpInputDivs[0].classList.add('warnborder');
+            break;
+        case 'name':
+            signUpWarntext[1].classList.remove('transparent');
+            signUpInputDivs[1].classList.add('warnborder');
+            break;
+        case 'pswd':
+            signUpWarntext[2].classList.remove('transparent');
+            signUpInputDivs[2].classList.add('warnborder');
+            break;
+        case 'pwre':
+            signUpWarntext[3].classList.remove('transparent');
+            signUpInputDivs[3].classList.add('warnborder');
+            break;
     }
-    else if(signUpIdInput.value.length<=0){
-        signUpWarntext[1].classList.remove('transparent');
-        signUpInputDivs[1].classList.add('warnborder');
-        return true;
-    }
-    else if(signUpPasswordInput.value.length<=0){
-        signUpWarntext[2].classList.remove('transparent');
-        signUpInputDivs[2].classList.add('warnborder');
-        return true;
-    }
-    else if(signUpPasswordReInput.value.length<=0){
-        signUpWarntext[3].classList.remove('transparent');
-        signUpInputDivs[3].classList.add('warnborder');
-        return true;
-    }
-    else{
-        return false;
+}
+
+function blankScanner(){
+    if(signUpNameInput.value.length<=0)
+        return 'name';
+
+    else if(signUpIdInput.value.length<=0)
+        return 'id';
+
+    else if(signUpPasswordInput.value.length<=0)
+        return 'pswd';
+
+    else if(signUpPasswordReInput.value.length<=0)
+        return 'pwre';
+
+    else 
+        return 200;
+}
+
+function signUpServerPost(){
+    if(blankScanner()===200){
+        axios({
+        })
     }
 }
 
