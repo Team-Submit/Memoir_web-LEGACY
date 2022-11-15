@@ -45,7 +45,10 @@ function blankScanner(){
 }
 
 function signUpServerPost(){
-    if(blankScanner()===200){
+    if(signUpPasswordInput.value!==signUpPasswordReInput.value){
+        alert('비밀번호/다시 입력이 다릅니다');
+    }
+    else if(blankScanner()===200){
         axios({
             methmod:'post',
             url:'/auth/signUp',
