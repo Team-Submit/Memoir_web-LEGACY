@@ -47,6 +47,21 @@ function blankScanner(){
 function signUpServerPost(){
     if(blankScanner()===200){
         axios({
+            methmod:'post',
+            url:'/auth/signUp',
+            data:{
+                "nickName": signUpNameInput.value,
+                "userID": signUpIdInput.value,
+                "password": signUpPasswordInput.value
+            }
+        })
+        .then(function(response){
+            alert("회원가입에 성공했습니다");
+            location.replace("../login/login.html");
+        })
+        .catch(function(error){
+            if(error.response.status===409) alert("계정 정보가 중복됩니다.");
+            else if(error.response.status===400) alert("알 수 없는 오류입니다. 고객센터는 없으니 어떡하죠");
         })
     }
     else{
