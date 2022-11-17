@@ -6,6 +6,8 @@ const signUpWarntext = document.querySelectorAll(".warnText");
 const signUpInputDivs = document.querySelectorAll(".inputDiv");
 const signUpButton = document.querySelector(".signupButton");
 
+axios.defaults.baseURL = 'http://172.20.10.7:8080';
+
 function inputWarnMaker(){
     switch(blankScanner()){
         case 'id':
