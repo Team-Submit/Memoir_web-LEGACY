@@ -167,6 +167,7 @@ section{
     background-color: #4F60FF;
     color: white;
     margin-top: 15px;
+    cursor: pointer;
   }
   .pwhidopen{
     display: none;
@@ -211,4 +212,5 @@ section{
     background-color: #4F60FF;
     color: white;
     margin-top: 10px;
+    cursor: pointer;
   }
