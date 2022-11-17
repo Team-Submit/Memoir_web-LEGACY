@@ -62,7 +62,7 @@ function signUpServerPost(){
         })
         .then(function(response){
             alert("회원가입에 성공했습니다");
-            location.replace("../login/login.html");
+            location.href = "../login/login.html";
         })
         .catch(function(error){
             if(error.response.status===409) alert("계정 정보가 중복됩니다.");
