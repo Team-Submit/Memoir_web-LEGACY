@@ -49,6 +49,7 @@ function loginServerPost(){
         })
         .then(function(response){
             localStorage.setItem("accessTkn",response.data.accessToken);
+            location.href = "../mainpage/main.html";
         })
         .catch(function(error){
             if(error.response.status===404) alert("아이디와 비밀번호를 확인해주세요");
@@ -71,4 +72,4 @@ loginPasswordInput.addEventListener('change',function(){
 });
 
 loginLoginBtn.addEventListener('click',loginServerPost);
-loginMoveToSignUp.addEventListener("click",function(){location.replace("../signup/signup.html")});
+loginMoveToSignUp.addEventListener("click",function(){location.href = "../signup/signup.html";});
