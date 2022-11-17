@@ -41,14 +41,14 @@ function loginServerPost(){
     if(blankScanner()==='kimchi'){
         axios({
             method:'post',
-            url:`/auth/login`,
+            url:`/users/login`,
             data:{
-                "accountId": loginIdInput.value,
-                "password": loginPasswordInput.value,   
+                "userId": loginIdInput.value,
+                "password": loginPasswordInput.value,
             }
         })
         .then(function(response){
-            localStorage.setItem("accessTkn",response.access_token);
+            localStorage.setItem("accessTkn",response.data.accessToken);
         })
         .catch(function(error){
             if(error.response.status===404) alert("아이디와 비밀번호를 확인해주세요");
