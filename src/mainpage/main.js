@@ -3,7 +3,7 @@ const mypagebtn = document.querySelector(".mypage");
 const mainlist = document.querySelectorAll(".one");
 axios.defaults.baseURL = 'http://192.168.137.87:8081';
 let token = localStorage.getItem('access_token') || '';
-localStorage.removeItem("PageId")
+localStorage.removeItem("PageId");
 
 axios.get('https://5540845b-638f-44d6-8017-aab2ea42f445.mock.pstmn.io/memoir')
 .then(function(result){
