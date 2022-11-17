@@ -1,18 +1,41 @@
 const loginbtn = document.querySelector(".loginbtn");
+const mypagebtn = document.querySelector(".mypage");
 const mainlist = document.querySelectorAll(".one");
+axios.defaults.baseURL = 'http://172.20.10.7:8080';
+let token = localStorage.getItem('accessTkn') || '';
+localStorage.removeItem("PageId");
 
-axios.get('https://5540845b-638f-44d6-8017-aab2ea42f445.mock.pstmn.io/memoir')
+axios.get('/memoir/list')
 .then(function(result){
     console.log('통신 결과 : ', result);
+
+    if(token !== ''){
+        loginbtn.innerText = "글쓰기";
+        loginbtn.addEventListener("click", reviewDetail);
+        mypagebtn.style.display = 'inline-block';
+        mypagebtn.addEventListener("click", mypagego);
+    }else{
+        loginbtn.addEventListener("click", logingo);
+        mypagebtn.style.display = 'none';
+    }
+
     const memoirList = result.data.memoirList;
     
+    // const reversememoirList = memoirList.reverse(); 만약에 순서가 반대로 되면 사용하기 
+
     for(i = 0; i < memoirList.length; i++){
+        let contents = memoirList[i].goal + memoirList[i].learned + memoirList[i].felt + memoirList[i].nextGoal;
+
         const list = document.querySelector(".list");
 
         const li = document.createElement("li");
         li.classList.add("one");
         list.appendChild(li);
-
+        li.id = memoirList[i].id;
+        li.addEventListener("click", idOnclick);
+        function idOnclick(){
+            reviewDetail(li.id);
+        }
         const di = document.createElement("div");
         di.classList.add("di");
         li.appendChild(di);
@@ -24,11 +47,11 @@ axios.get('https://5540845b-638f-44d6-8017-aab2ea42f445.mock.pstmn.io/memoir')
 
         const ct = document.createElement("p");
         ct.classList.add("contents");
-        if(memoirList[i].content.length >= 65){
-            let stringCut = memoirList[i].content.substring(0, 65);
+        if(contents.length >= 65){
+            let stringCut = contents.substring(0, 65);
             ct.innerText = stringCut + "...";
         }else{
-            ct.innerText = memoirList[i].content;
+            ct.innerText = contents;
         }
         di.appendChild(ct);
 
@@ -49,10 +72,7 @@ axios.get('https://5540845b-638f-44d6-8017-aab2ea42f445.mock.pstmn.io/memoir')
         nickname.classList.add("nickname");
         nickname.innerText = memoirList[i].nickname;
         write.appendChild(nickname);
-
-        li.addEventListener("click", reviewDetail);
     }
-
     
 })
 .catch(function(error){
@@ -63,6 +83,11 @@ function logingo(){
     location.href = '../login/login.html';
 }
 
-function reviewDetail(){
-    location.href = '../reviewDetail/reviewDetail.html'
+function mypagego(){
+    location.href = '../mypage/mypage.html';
+}
+
+function reviewDetail(idvalue){
+    localStorage.setItem("PageId", idvalue);
+    location.href = '../reviewDetail/reviewDetail.html';
 }

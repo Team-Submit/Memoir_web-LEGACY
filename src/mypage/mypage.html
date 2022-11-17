@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="mypage.css">
     <link rel="stylesheet" href="../globalStyle.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <header>
@@ -28,7 +29,7 @@
       <div class="modalcontainer">
         <div class="myifmodal">
           <p class="pfc">내 정보 수정</p>
-          <input id="namechange" placeholder="김박이름름">
+          <input id="namechange">
           <input id="itrchange" placeholder="반가워요 저는 프로필 설명을 쓰고 있어요">
           <button id="save">저장</button>
         </div>
@@ -37,8 +38,8 @@
     <div class="pwhidopen">
       <div class="modalcontainer">
         <div class="pwmodal">
-          <p class="pwnickname">김박이름</p>
-          <p class="pwid">kimprknme6</p>
+          <p class="pwnickname"></p>
+          <p class="pwid"></p>
           <input type="password" id="lastpw" placeholder="기존 비밀번호">
           <input type="password" id="newpw" placeholder="새 비밀번호">
           <input type="password" id="newpwcheck" placeholder="새 비밀번호 확인">
@@ -50,9 +51,9 @@
       <section>
         <div class="noenter">
           <div class="mainifm">
-              <p class="ifmnickname">김박이름</p>
-              <p class="ifmid">kimprknme6</p>
-              <p class="ifmintroduce">반가워요 저는 프로필 설명을 쓰고 있어요</p>
+              <p class="ifmnickname"></p>
+              <p class="ifmid"></p>
+              <p class="ifmintroduce"></p>
           </div>
           <div class="changebtn">
             <button id="myifm">내 정보 수정</button>
@@ -62,24 +63,10 @@
           <div class="line"></div>
           <div class="mytext">
             <p class="mysee">내가 쓴 글</p>
-            <button class="mydel">글 삭제</button>
           </div>
         </div>
   
         <ul class="list">
-          <li>
-            <div class="di">
-              <p class="title">프로젝트 디자인을 하루만에?</p>
-                <p class="contents">프로젝트 디자인을 하루만에 끝내버렸다. 어쩌면 나 멘토 선배님에게 칭찬을 받을 수 있을지도...</p>
-                <div class="nida">
-                  <p class="date">2022-06-14</p>
-                  <div class="write">
-                    <p class="nickname">작성자</p>
-                 </div>
-                </div>
-              </div>
-            </div>
-          </li>
   
         </ul>
       </section>
