@@ -11,8 +11,8 @@ const lastpw = document.getElementById("lastpw");
 const newpw = document.getElementById("newpw");
 const newpwcheck = document.getElementById("newpwcheck");
 const textreg = document.querySelector(".textreg");
-axios.defaults.baseURL = 'http://192.168.137.87:8081';
-let token = localStorage.getItem('access_token') || '';
+axios.defaults.baseURL = 'http://172.20.10.7:8080';
+let token = localStorage.getItem('accessTkn') || '';
 
 myifm.addEventListener("click", myopen);
 layout.addEventListener("click", myclose);
@@ -28,7 +28,7 @@ function tokencheck(){
         location.href  = '../login/login.html';
     }
     //토큰 확인하는 코드임
-    axios.get('https://5540845b-638f-44d6-8017-aab2ea42f445.mock.pstmn.io/mypage', {
+    axios.get('/users/mypage', {
         Headers: {Authorization: token,},
     })
 .then(function(result){

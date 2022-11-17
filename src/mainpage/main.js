@@ -1,11 +1,11 @@
 const loginbtn = document.querySelector(".loginbtn");
 const mypagebtn = document.querySelector(".mypage");
 const mainlist = document.querySelectorAll(".one");
-axios.defaults.baseURL = 'http://192.168.137.87:8081';
-let token = localStorage.getItem('access_token') || '';
+axios.defaults.baseURL = 'http://172.20.10.7:8080';
+let token = localStorage.getItem('accessTkn') || '';
 localStorage.removeItem("PageId");
 
-axios.get('https://5540845b-638f-44d6-8017-aab2ea42f445.mock.pstmn.io/memoir')
+axios.get('/memoir/list')
 .then(function(result){
     console.log('통신 결과 : ', result);
 
