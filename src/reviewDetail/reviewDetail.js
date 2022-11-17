@@ -19,6 +19,7 @@ const cmntDelete = document.getElementById("cmntDelete");
 cmntDelete.addEventListener("click", a);
 
 // 댓글 없으면 댓글 창 안뜨게 하는 코드
+// 아잉 모르겠당
 if (feedbackCnt == "") {
   function deleteDiv() {
     const del = document.querySelector(".feedbackBox");
@@ -27,41 +28,44 @@ if (feedbackCnt == "") {
   }
 }
 
-// 댓글 삭제 누르면 없어지게 하는 코드
-function a() {
-  // 끼야야야야야악 어려워
-  const feedbackBox = document.getElementsByClassName("feedbackBox");
-
-  feedbackBox.remove();
-}
-
 // 댓글 가져오기
 axios
   .get("/comment/{memoirId}")
   .then(function (result) {
     console.log("통신 결과 ", result);
-    const contents = result.data.contents;
+    const contents = result.data;
 
-    otherName.innerText = contents[0].commentsPostResponse[0].writer;
-    feedbackCnt.innerText = contents[0].commentsPostResponse[0].comment;
+    for (i = 0; i < contents.length; i++) {
+      otherName.innerText = contents[i].nickname;
+      feedbackCnt.innerText = contents[i].content;
+    }
   })
   .catch(function (error) {
     console.error(error);
   });
 
 // 댓글 등록하기
-axios
-  .post("/comment/memoir", {
-    headers: {
-      "access-token": tokken,
-    },
-  })
-  .then(function (response) {
-    console.log(response);
+function button(event) {
+  axios
+    .post(
+      "/comment/memoir",
+      {
+        commentsPostResponse: [
+          {
+            nickName: nickName.value,
+            content: content.value,
+          },
+        ],
+      },
+      {
+        headers: {
+          "access-token": tokken,
+        },
+      }
+    )
+    .then(function (response) {
+      console.log(response);
 
-    reply.addEventListener("click", button);
-    
-    function button(event) {
       event.preventDefault();
       if (cmnt == null) {
         console.log("짜잔");
@@ -85,7 +89,7 @@ axios
 
         const on = document.createElement("li");
         on.id = "otherName";
-        on.innerText = "예?";
+        on.innerText = otherName.value;
 
         const div = document.createElement("div");
         div.classList.add("a");
@@ -119,12 +123,12 @@ axios
 
         document.getElementById("cmnt").value = "";
       }
-    }
-  })
-  .catch(function (error) {
-    console.error(error);
-  });
-
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+}
+reply.addEventListener("click", button);
 // 댓글 수정하기
 axios
   .patch("/comment/memoir", {
@@ -152,6 +156,12 @@ axios
   .catch(function (error) {
     console.error(error);
   });
+
+  // 댓글 삭제 누르면 없어지게 하는 코드
+function a() {
+  // 끼야야야야야악 어려워... 뭐야 짱 쉽잖아? 취소
+  document.querySelector(".feedbackBox").style.display = "none";
+}
 
 // 상세보기 글 가져오기
 axios
@@ -221,6 +231,8 @@ axios
   })
   .then(function (response) {
     console.log(response);
+    alert("삭제되었습니다.");
+    location.href = "../mainpage/main.html";
   })
   .catch(function (error) {
     console.error(error);
