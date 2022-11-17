@@ -41,19 +41,23 @@ function loginServerPost(){
     if(blankScanner()==='kimchi'){
         axios({
             method:'post',
-            url:`/auth/login`,
+            url:`/users/login`,
             data:{
-                "accountId": loginIdInput.value,
-                "password": loginPasswordInput.value,   
+                "userId": loginIdInput.value,
+                "password": loginPasswordInput.value,
             }
         })
         .then(function(response){
-            localStorage.setItem("accessTkn",response.access_token);
+            localStorage.setItem("accessTkn",response.data.accessToken);
+            location.href = "../mainpage/main.html";
         })
         .catch(function(error){
             if(error.response.status===404) alert("아이디와 비밀번호를 확인해주세요");
             else if(error.response.status===400) alert("알 수 없는 오류입니다. 고객센터는 없으니 어떡하죠")
         });
+    }
+    else{
+        inputWarnMaker();
     }
 }
 
@@ -68,4 +72,4 @@ loginPasswordInput.addEventListener('change',function(){
 });
 
 loginLoginBtn.addEventListener('click',loginServerPost);
-loginMoveToSignUp.addEventListener("click",function(){location.replace("../signup/signup.html")});
+loginMoveToSignUp.addEventListener("click",function(){location.href = "../signup/signup.html";});
