@@ -52,7 +52,7 @@ function signUpServerPost(){
     }
     else if(blankScanner()===200){
         axios({
-            methmod:'post',
+            method:'post',
             url:'/users/signup',
             data:{
                 "nickName": signUpNameInput.value,
