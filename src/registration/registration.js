@@ -1,5 +1,7 @@
 axios.defaults.baseURL = "http://172.20.10.7:8080";
 
+const tokken = localStorage.getItem("access_token");
+
 const submit = document.getElementById("submit");
 
 submit.addEventListener("click", regPost);
@@ -16,7 +18,7 @@ function regPost() {
       "/memoir/write",
       {
         headers: {
-          "access-token": res.data.token,
+          "access-token": tokken,
         },
       },
       {
