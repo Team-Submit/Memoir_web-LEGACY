@@ -29,7 +29,7 @@ function tokencheck(){
     }
     //토큰 확인하는 코드임
     axios.get('/users/mypage', {
-        Headers: {Authorization: token,},
+        Headers: {Authorization: token}
     })
 .then(function(result){
     console.log('결과 : ', result);
