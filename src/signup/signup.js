@@ -53,10 +53,10 @@ function signUpServerPost(){
     else if(blankScanner()===200){
         axios({
             methmod:'post',
-            url:'/auth/signUp',
+            url:'/users/signup',
             data:{
                 "nickName": signUpNameInput.value,
-                "userID": signUpIdInput.value,
+                "userId": signUpIdInput.value,
                 "password": signUpPasswordInput.value
             }
         })
