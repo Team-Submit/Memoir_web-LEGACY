@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="signup.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap"
-      rel="stylesheet"
-    />
-    <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
       rel="stylesheet"
     />
@@ -23,22 +19,41 @@
         <a href="../login/login.html" class="login">로그인</a>
       </div>
     </header>
+
     <div class="signup">
       <p class="title">회원가입</p>
-      <div class="id">
-        <p>아이디</p>
-        <input type="text" class="idInput" />
+
+      <div id="nickMix">
+        <div class="nickname inputDiv">
+          <input type="text" class="nicknameInput" placeholder="이름"/>
+        </div>
+        <p class="warnText transparent">이름을 입력해 주세요</p>
       </div>
-      <div class="password">
-        <p>비밀번호</p>
-        <input type="password" class="passwordInput" />
+
+      <div id="idMix">
+        <div class="id inputDiv">
+          <input type="text" class="idInput" placeholder="아이디"/>
+        </div>
+        <p class="warnText transparent">아이디를 입력해 주세요</p>
       </div>
-      <div class="nickname">
-        <p>닉네임</p>
-        <input type="text" class="nicknameInput" />
+
+      <div id="pwdMix">
+        <div class="password inputDiv">
+          <input type="password" class="passwordInput" placeholder="비밀번호"/>
+        </div>
+        <p class="warnText transparent">비밀번호를 입력해 주세요</p>
       </div>
-      <button type="submit" class="signupButton">계정 만들기</button>
+
+      <div id="pwdChkMix">
+        <div class="password passwordCheck inputDiv">
+          <input type="password" class="passwordCheckInput" placeholder="비밀번호 확인"/>
+        </div>
+        <p class="warnText transparent">비밃번호를 다시 입력해 주세요</p>
+      </div>
+
+      <button type="submit" class="signupButton">회원가입</button>
     </div>
-    <script src="index.js"/>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="signup.js"></script>
   </body>
 </html>
