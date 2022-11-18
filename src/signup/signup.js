@@ -6,7 +6,7 @@ const signUpWarntext = document.querySelectorAll(".warnText");
 const signUpInputDivs = document.querySelectorAll(".inputDiv");
 const signUpButton = document.querySelector(".signupButton");
 
-axios.defaults.baseURL = 'http://172.20.10.7:8080';
+axios.defaults.baseURL = 'http://192.168.241.156:8080';
 
 function inputWarnMaker(){
     switch(blankScanner()){
@@ -55,7 +55,7 @@ function signUpServerPost(){
             method:'post',
             url:'/users/signup',
             data:{
-                "nickName": signUpNameInput.value,
+                "nickname": signUpNameInput.value,
                 "userId": signUpIdInput.value,
                 "password": signUpPasswordInput.value
             }
