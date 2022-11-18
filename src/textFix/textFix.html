@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/Group 61.png" />
+    <title>Memoir</title>
+    <link rel="stylesheet" href="./textFix.css" />
+    <link rel="stylesheet" href="../globalStyle.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="bata">
+          <img src="../assets/Memoir.svg" class="logo" />
+          <a href="../mainpage/main.html" class="bar1">회고록</a>
+          <a href="../mypage/mypage.html" class="bar3">마이페이지</a>
+        </div>
+        <button
+          onclick="location.href='../registration/registration.html'"
+          class="textreg"
+        >
+          글쓰기
+        </button>
+      </div>
+    </header>
+    <div class="form">
+      <p id="topic">회고 수정하기</p>
+      <input
+        type="text"
+        id="title"
+        required
+        placeholder="제목을 입력해 주세요"
+        onfocus="this.placeholder=''"
+        onblur="this.placeholder='제목을 입력해 주세요'"
+      />
+      <div id="titleUnder"></div>
+      <article class="review">
+        <ul class="goalBox">
+          <li id="goalTitle">🚩 오늘의 목표</li>
+          <input type="text" id="goal" autocomplete="off" required />
+        </ul>
+        <ul class="learnedBox">
+          <li id="learnedTitle">✒️ 배운 것</li>
+          <input type="text" id="learned" autocomplete="off" required />
+        </ul>
+        <ul class="feltBox">
+          <li id="feltTitle">❗ 느낀 점</li>
+          <input type="text" id="felt" autocomplete="off" required />
+        </ul>
+        <ul class="nextGoalBox">
+          <li id="nextGoalTitle">🗺️ 다음 주의 목표</li>
+          <input type="text" id="nextGoal" autocomplete="off" required />
+        </ul>
+        <button type="submit" id="fix">수정</button>
+      </article>
+    </div>
+  </body>
+</html>
