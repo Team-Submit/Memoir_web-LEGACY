@@ -11,8 +11,8 @@ const lastpw = document.getElementById("lastpw");
 const newpw = document.getElementById("newpw");
 const newpwcheck = document.getElementById("newpwcheck");
 const textreg = document.querySelector(".textreg");
-axios.defaults.baseURL = 'http://172.20.10.7:8080';
 let token = localStorage.getItem('accessTkn') || '';
+axios.defaults.baseURL = 'http://10.156.147.171:8080';
 
 myifm.addEventListener("click", myopen);
 layout.addEventListener("click", myclose);

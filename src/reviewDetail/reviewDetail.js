@@ -1,4 +1,3 @@
-axios.defaults.baseURL = "http://172.20.10.7:8080";
 
 const tokken = localStorage.getItem("accessTkn");
 const pageId = localStorage.getItem("PageId");

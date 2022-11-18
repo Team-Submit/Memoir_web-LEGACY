@@ -7,7 +7,7 @@ const loginPasswordDiv = document.getElementById("passwordInputDiv");
 const loginInputWarn = document.getElementsByClassName("warnText");
 
 const loginMoveToSignUp = document.getElementById("signupButton");
-axios.defaults.baseURL = 'http://172.20.10.7:8080';
+axios.defaults.baseURL = 'http://192.168.241.156:8080';
 
 /** ID&비밀번호 내용이 있는지를 구분해 경고 주는 팡션 */
 function inputWarnMaker(){
