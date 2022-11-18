@@ -1,6 +1,6 @@
-axios.defaults.baseURL = "http://172.20.10.7:8080";
+axios.defaults.baseURL = "http://:8080";
 
-const tokken = localStorage.getItem("access_token");
+const tokken = localStorage.getItem("accessTkn");
 
 const submit = document.getElementById("submit");
 
@@ -18,16 +18,16 @@ function regPost() {
       "/memoir/write",
       {
         headers: {
-          "access-token": tokken,
+          "Authorization": tokken,
         },
       },
       {
         data: {
-          title: title.value,
-          goal: goal.value,
-          learned: learned.value,
-          felt: felt.value,
-          nextGoal: nextGoal.value,
+          "title": title.value,
+          "goal": goal.value,
+          "learned": learned.value,
+          "felt": felt.value,
+          "nextGoal": nextGoal.value
         },
       }
     )
@@ -36,6 +36,6 @@ function regPost() {
     })
     .catch((error) => {
       console.log(error);
-      throw new Error(error);
+      // throw new Error(error);
     });
 }
