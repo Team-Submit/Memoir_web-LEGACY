@@ -19,9 +19,9 @@ axios.get('/memoir/list')
         mypagebtn.style.display = 'none';
     }
 
-    const memoirList = result.data.memoirList;
+    const memoirList = result.data;
     
-    // const reversememoirList = memoirList.reverse(); 만약에 순서가 반대로 되면 사용하기 
+    const reversememoirList = memoirList.reverse(); //만약에 순서가 반대로 되면 사용하기 
 
     if(memoirList){
         for(i = 0; i < memoirList.length; i++){
@@ -62,7 +62,7 @@ axios.get('/memoir/list')
     
             const date = document.createElement("p");
             date.classList.add("date");
-            date.innerText = memoirList[i].createdAt;
+            date.innerText = memoirList[i].modifiedAt;
             nida.appendChild(date);
     
             const write = document.createElement("div");

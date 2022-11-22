@@ -25,8 +25,10 @@ logout.addEventListener("click", logoutgo);
 
 function tokencheck(){
     if(token === ''){
+        alert("로그인을 해주세요!");
         location.href  = '../login/login.html';
     }
+}
     //토큰 확인하는 코드임
 // axios.get('/users/mypage', {
 //     headers:{
@@ -65,71 +67,80 @@ function tokencheck(){
 
     const itrchange = document.getElementById("itrchange");
     itrchange.placeholder = myPagedata.introduce;
-
-
-
-    let mypagememoirList = myPagedata.memoirList;
-    if(mypagememoirList){
-        for(i = 0; i < mypagememoirList.length; i++){
-        
-            if(mypagememoirList.nickname == myPagedata.nickname){
-                const list = document.querySelector(".list");
-
-                const li = document.createElement("li");
-                li.classList.add("one");
-                list.appendChild(li);
-                li.id = mypagememoirList[i].id;
-                li.addEventListener("click", idOnclick);
-                function idOnclick(){
-                    reviewDetail(li.id);
-                }
-        
-                const di = document.createElement("div");
-                di.classList.add("di");
-                li.appendChild(di);
-        
-                const title = document.createElement("p");
-                title.classList.add("title");
-                title.innerText = mypagememoirList[i].title;
-                di.appendChild(title);
-        
-                const ct = document.createElement("p");
-                ct.classList.add("contents");
-                if(mypagememoirList[i].content.length >= 65){
-                    let stringCut = mypagememoirList[i].content.substring(0, 65);
-                    ct.innerText = stringCut + "...";
-                }else{
-                    ct.innerText = mypagememoirList[i].content;
-                }
-                di.appendChild(ct);
-        
-                const nida = document.createElement("div");
-                nida.classList.add("nida");
-                di.appendChild(nida);
-        
-                const date = document.createElement("p");
-                date.classList.add("date");
-                date.innerText = mypagememoirList[i].createdAt;
-                nida.appendChild(date);
-        
-                const write = document.createElement("div");
-                write.classList.add("write");
-                nida.appendChild(write);
-        
-                const nickname = document.createElement("p");
-                nickname.classList.add("nickname");
-                nickname.innerText = mypagememoirList[i].nickName;
-                write.appendChild(nickname);
-        
-                li.addEventListener("click", reviewDetail);
-            }
-        }
-    }
 })
 .catch(function(error){
     console.error('error 발생 : ', error);
 });
-}
+
+axios.get('/memoir/mypage', {
+    headers: {
+        "Authorization" : `Bearer ${token}`,
+    }
+})
+.then(function(result){
+
+    console.log(result);
+
+    let mypagememoirList = result.data;
+    if(mypagememoirList){
+        for(i = 0; i < mypagememoirList.length; i++){
+
+            let contents = mypagememoirList[i].goal + mypagememoirList[i].learned + mypagememoirList[i].felt + mypagememoirList[i].nextGoal;
+            const list = document.querySelector(".list");
+
+            const li = document.createElement("li");
+            li.classList.add("one");
+            list.appendChild(li);
+            li.id = mypagememoirList[i].id;
+            li.addEventListener("click", idOnclick);
+            function idOnclick(){
+                reviewDetail(li.id);
+            }
+    
+            const di = document.createElement("div");
+            di.classList.add("di");
+            li.appendChild(di);
+    
+            const title = document.createElement("p");
+            title.classList.add("title");
+            title.innerText = mypagememoirList[i].title;
+            di.appendChild(title);
+    
+            const ct = document.createElement("p");
+            ct.classList.add("contents");
+            if(contents.length >= 65){
+                let stringCut = contents.substring(0, 65);
+                ct.innerText = stringCut + "...";
+            }else{
+                ct.innerText = contents;
+            }
+            di.appendChild(ct);
+    
+            const nida = document.createElement("div");
+            nida.classList.add("nida");
+            di.appendChild(nida);
+    
+            const date = document.createElement("p");
+            date.classList.add("date");
+            date.innerText = mypagememoirList[i].modifiedAt;
+            nida.appendChild(date);
+    
+            const write = document.createElement("div");
+            write.classList.add("write");
+            nida.appendChild(write);
+    
+            const nickname = document.createElement("p");
+            nickname.classList.add("nickname");
+            nickname.innerText = mypagememoirList[i].nickName;
+            write.appendChild(nickname);
+    
+            li.addEventListener("click", reviewDetail);
+        }
+    }
+})
+.catch(function(error){
+    console.log(error);
+})
 
 
 function reviewDetail(idvalue){
