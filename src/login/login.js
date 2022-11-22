@@ -41,7 +41,7 @@ function loginServerPost(){
     if(blankScanner()==='kimchi'){
         axios({
             method:'post',
-            url:`/users/login`,
+            url:'/users/login',
             data:{
                 "userId": loginIdInput.value,
                 "password": loginPasswordInput.value,

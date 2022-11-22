@@ -12,7 +12,7 @@ const newpw = document.getElementById("newpw");
 const newpwcheck = document.getElementById("newpwcheck");
 const textreg = document.querySelector(".textreg");
 let token = localStorage.getItem('accessTkn') || '';
-axios.defaults.baseURL = 'http://10.156.147.171:8080';
+axios.defaults.baseURL = 'http://192.168.241.156:8080';
 
 myifm.addEventListener("click", myopen);
 layout.addEventListener("click", myclose);
@@ -28,22 +28,31 @@ function tokencheck(){
         location.href  = '../login/login.html';
     }
     //토큰 확인하는 코드임
-    axios.get('/users/mypage', {
-        Headers: {Authorization: token,},
-    })
+// axios.get('/users/mypage', {
+//     headers:{
+//         "Authorization" : `Bearer ${token}`,
+//     }
+//   })
+  axios({
+    method: 'get',
+    url: '/users/mypage',
+    headers: {
+      "Authorization": `Bearer ${token}`,
+    }
+  })
 .then(function(result){
     console.log('결과 : ', result);
 
     const myPagedata = result.data;
 
     const pwname = document.querySelector(".pwnickname");
-    pwname.innerText = myPagedata.nickname;
+    pwname.innerText = myPagedata.nickName;
 
     const pwid  = document.querySelector(".pwid");
     pwid.innerText = myPagedata.userId;
 
     const ifmnickname = document.querySelector(".ifmnickname");
-    ifmnickname.innerText = result.data.nickname;
+    ifmnickname.innerText = myPagedata.nickName;
     
     const ifmid = document.querySelector(".ifmid");
     ifmid.innerText = myPagedata.userId;
@@ -52,7 +61,7 @@ function tokencheck(){
     ifmintroduce.innerText = myPagedata.introduce;
 
     const namechange = document.getElementById("namechange");
-    namechange.placeholder = myPagedata.nickname;
+    namechange.placeholder = myPagedata.nickName;
 
     const itrchange = document.getElementById("itrchange");
     itrchange.placeholder = myPagedata.introduce;
@@ -60,61 +69,62 @@ function tokencheck(){
 
 
     let mypagememoirList = myPagedata.memoirList;
-    for(i = 0; i < mypagememoirList.length; i++){
+    if(mypagememoirList){
+        for(i = 0; i < mypagememoirList.length; i++){
         
-        if(mypagememoirList.nickname == myPagedata.nickname){
-            const list = document.querySelector(".list");
+            if(mypagememoirList.nickname == myPagedata.nickname){
+                const list = document.querySelector(".list");
 
-            const li = document.createElement("li");
-            li.classList.add("one");
-            list.appendChild(li);
-            li.id = mypagememoirList[i].id;
-            li.addEventListener("click", idOnclick);
-            function idOnclick(){
-                reviewDetail(li.id);
+                const li = document.createElement("li");
+                li.classList.add("one");
+                list.appendChild(li);
+                li.id = mypagememoirList[i].id;
+                li.addEventListener("click", idOnclick);
+                function idOnclick(){
+                    reviewDetail(li.id);
+                }
+        
+                const di = document.createElement("div");
+                di.classList.add("di");
+                li.appendChild(di);
+        
+                const title = document.createElement("p");
+                title.classList.add("title");
+                title.innerText = mypagememoirList[i].title;
+                di.appendChild(title);
+        
+                const ct = document.createElement("p");
+                ct.classList.add("contents");
+                if(mypagememoirList[i].content.length >= 65){
+                    let stringCut = mypagememoirList[i].content.substring(0, 65);
+                    ct.innerText = stringCut + "...";
+                }else{
+                    ct.innerText = mypagememoirList[i].content;
+                }
+                di.appendChild(ct);
+        
+                const nida = document.createElement("div");
+                nida.classList.add("nida");
+                di.appendChild(nida);
+        
+                const date = document.createElement("p");
+                date.classList.add("date");
+                date.innerText = mypagememoirList[i].createdAt;
+                nida.appendChild(date);
+        
+                const write = document.createElement("div");
+                write.classList.add("write");
+                nida.appendChild(write);
+        
+                const nickname = document.createElement("p");
+                nickname.classList.add("nickname");
+                nickname.innerText = mypagememoirList[i].nickName;
+                write.appendChild(nickname);
+        
+                li.addEventListener("click", reviewDetail);
             }
-    
-            const di = document.createElement("div");
-            di.classList.add("di");
-            li.appendChild(di);
-    
-            const title = document.createElement("p");
-            title.classList.add("title");
-            title.innerText = mypagememoirList[i].title;
-            di.appendChild(title);
-    
-            const ct = document.createElement("p");
-            ct.classList.add("contents");
-            if(mypagememoirList[i].content.length >= 65){
-                let stringCut = mypagememoirList[i].content.substring(0, 65);
-                ct.innerText = stringCut + "...";
-            }else{
-                ct.innerText = mypagememoirList[i].content;
-            }
-            di.appendChild(ct);
-    
-            const nida = document.createElement("div");
-            nida.classList.add("nida");
-            di.appendChild(nida);
-    
-            const date = document.createElement("p");
-            date.classList.add("date");
-            date.innerText = mypagememoirList[i].createdAt;
-            nida.appendChild(date);
-    
-            const write = document.createElement("div");
-            write.classList.add("write");
-            nida.appendChild(write);
-    
-            const nickname = document.createElement("p");
-            nickname.classList.add("nickname");
-            nickname.innerText = mypagememoirList[i].nickname;
-            write.appendChild(nickname);
-    
-            li.addEventListener("click", reviewDetail);
         }
     }
-        
 })
 .catch(function(error){
     console.error('error 발생 : ', error);
@@ -132,7 +142,7 @@ function addnewtext(){
 }
 
 function logoutgo(){
-    localStorage.removeItem("access_token");
+    localStorage.removeItem("accessTkn");
     location.href = '../mainpage/main.html';
 }
 

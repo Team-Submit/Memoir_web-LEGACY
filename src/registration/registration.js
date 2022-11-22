@@ -1,6 +1,6 @@
-axios.defaults.baseURL = "http://172.20.10.7:8080";
+axios.defaults.baseURL = 'http://192.168.241.156:8080';
 
-const tokken = localStorage.getItem("access_token");
+const tokken = localStorage.getItem("accessTkn");
 
 const submit = document.getElementById("submit");
 
@@ -13,24 +13,20 @@ function regPost() {
   const felt = document.getElementById("felt");
   const nextGoal = document.getElementById("nextGoal");
 
-  axios
-    .post(
-      "/memoir/write",
-      {
-        headers: {
-          "access-token": tokken,
-        },
-      },
-      {
-        data: {
-          title: title.value,
-          goal: goal.value,
-          learned: learned.value,
-          felt: felt.value,
-          nextGoal: nextGoal.value,
-        },
-      }
-    )
+  axios({
+    method: 'post',
+    url: '/memoir/write',
+    data:{
+      "title": title.value,
+      "goal": goal.value,
+      "learned": learned.value,
+      "felt": felt.value,
+      "nextGoal": nextGoal.value
+    },
+    headers: {
+      "Authorization": `Bearer ${tokken}`,
+    }
+  })
     .then((res) => {
       location.href = "../mainpage/main.html";
     })
