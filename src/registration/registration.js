@@ -28,6 +28,7 @@ function regPost() {
     }
   })
     .then((res) => {
+      alert("작성되셨습니다.");
       location.href = "../mainpage/main.html";
     })
     .catch((error) => {
