@@ -1,0 +1,95 @@
+li {
+  list-style: none;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.form {
+  width: 1000px;
+  margin: 30px auto;
+}
+
+#topic {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 1000px;
+  height: 40px;
+  border: 1px solid rgba(156, 156, 156, 0.2);
+  border-radius: 5px;
+  padding-left: 10px;
+  background-color: #f6f6f6;
+  outline: none;
+  font-size: 14px;
+}
+
+#title {
+  font-weight: bold;
+  margin-bottom: 27px;
+}
+
+#titleUnder {
+  background-color: #9c9c9c;
+  border: 1px solid transparent;
+  opacity: 0.2;
+}
+
+.review {
+  margin-top: 25px;
+}
+
+.goalBox {
+  margin-bottom: 25px;
+}
+
+#goalTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.learnedBox {
+  margin-bottom: 25px;
+}
+
+#learnedTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.feltBox {
+  margin-bottom: 25px;
+}
+
+#feltTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.nextGoalBox {
+  margin-bottom: 25px;
+}
+
+#nextGoalTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#fix {
+  background-color: #4f4eed;
+  border: 1px solid rgba(156, 156, 156, 0.2);
+  border-radius: 5px;
+  font-size: 14px;
+  color: white;
+  padding: 4px 20px;
+  cursor: pointer;
+}
