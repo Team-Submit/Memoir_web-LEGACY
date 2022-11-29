@@ -29,19 +29,13 @@ function tokencheck(){
         location.href  = '../login/login.html';
     }
 }
-    //토큰 확인하는 코드임
-// axios.get('/users/mypage', {
-//     headers:{
-//         "Authorization" : `Bearer ${token}`,
-//     }
-//   })
-  axios({
+axios({
     method: 'get',
     url: '/users/mypage',
     headers: {
-      "Authorization": `Bearer ${token}`,
+        "Authorization": `Bearer ${token}`,
     }
-  })
+})
 .then(function(result){
     console.log('결과 : ', result);
 
