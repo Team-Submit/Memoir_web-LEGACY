@@ -97,11 +97,12 @@ section{
   .contents{
     font-size: 12px;
     color: #454545;
+    height: 50px;
   }
   .nida{
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
+    margin-top: 25px;
   }
   .date, .nickname{
     font-size: 12px;

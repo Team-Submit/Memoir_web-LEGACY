@@ -1,5 +1,5 @@
 const searchInput = document.querySelector(".search");
-axios.defaults.baseURL = 'http://172.20.10.7:8080';
+axios.defaults.baseURL = 'http://192.168.241.107:8080';
 
 searchInput.addEventListener("keydown", search);
 

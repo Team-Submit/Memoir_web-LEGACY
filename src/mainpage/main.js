@@ -1,7 +1,7 @@
 const loginbtn = document.querySelector(".loginbtn");
 const mypagebtn = document.querySelector(".mypage");
 const mainlist = document.querySelectorAll(".one");
-axios.defaults.baseURL = 'http://192.168.241.156:8080';
+axios.defaults.baseURL = 'http://192.168.241.107:8080';
 let token = localStorage.getItem('accessTkn') || '';
 localStorage.removeItem("PageId");
 
@@ -21,7 +21,7 @@ axios.get('/memoir/list')
 
     const memoirList = result.data;
     
-    const reversememoirList = memoirList.reverse(); //만약에 순서가 반대로 되면 사용하기 
+    memoirList.reverse(); //만약에 순서가 반대로 되면 사용하기 
 
     if(memoirList){
         for(i = 0; i < memoirList.length; i++){

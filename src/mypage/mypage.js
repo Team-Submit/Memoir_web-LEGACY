@@ -12,7 +12,7 @@ const newpw = document.getElementById("newpw");
 const newpwcheck = document.getElementById("newpwcheck");
 const textreg = document.querySelector(".textreg");
 let token = localStorage.getItem('accessTkn') || '';
-axios.defaults.baseURL = 'http://192.168.241.156:8080';
+axios.defaults.baseURL = 'http://192.168.241.107:8080';
 
 myifm.addEventListener("click", myopen);
 layout.addEventListener("click", myclose);
@@ -76,6 +76,8 @@ axios.get('/memoir/mypage', {
     console.log(result);
 
     let mypagememoirList = result.data;
+
+    mypagememoirList.reverse();
     if(mypagememoirList){
         for(i = 0; i < mypagememoirList.length; i++){
 

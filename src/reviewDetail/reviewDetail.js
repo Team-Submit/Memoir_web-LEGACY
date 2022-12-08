@@ -1,7 +1,6 @@
 
 const token = localStorage.getItem("accessTkn");
 const pageId = localStorage.getItem("PageId");
-let Nickname = "";
 
 const title = document.getElementById("title");
 const userName = document.getElementById("userName");
@@ -11,7 +10,7 @@ const learned = document.getElementById("learned");
 const felt = document.getElementById("felt");
 const nextGoal = document.getElementById("nextGoal");
 
-axios.defaults.baseURL = 'http://192.168.241.156:8080';
+axios.defaults.baseURL = 'http://192.168.241.107:8080';
 
 axios.get('/memoir', {
   params: {
@@ -41,10 +40,10 @@ const deletebtn = document.getElementById("delete");
 edit.addEventListener("click", reviewEdit);
 deletebtn.addEventListener("click", deletereview);
 
-function deletereview(){
+function deletereview(CommentId){
   axios.delete('/memoir',{
       params: {
-        "memoirId": pageId
+        "memoirId": CommentId
     },
       headers: {
           "Authorization" : `Bearer ${token}`,
@@ -65,7 +64,7 @@ function reviewEdit(){
 }
 
 
-axios.get("comment/" + pageId)
+axios.get("comment/" + `${pageId}`)
 .then(function(result){
   console.log('결과 : ', result);
   const reviewList = result.data;
@@ -75,6 +74,11 @@ axios.get("comment/" + pageId)
   
       const ul = document.createElement("ul");
       ul.classList.add("feedbackBox");
+      // ul.id = reviewList[i].id;
+      // ul.addEventListener("click", idOnclick);
+      // function idOnclick(){
+      //   deletereview(ul.id);
+      // }
       feedback.appendChild(ul);
   
       const ol = document.createElement("ol");
@@ -88,7 +92,7 @@ axios.get("comment/" + pageId)
   
       const li = document.createElement("li");
       li.id = "otherName";
-      li.innerText = reviewList[i].writer;
+      li.innerText = reviewList[i].nickname;
       ol.appendChild(li);
   
       const div = document.createElement("div");
@@ -111,8 +115,10 @@ axios.get("comment/" + pageId)
   
       const feedbackCnt = document.createElement("li");
       feedbackCnt.id = "feedbackCnt";
-      feedbackCnt.innerText = reviewList[i].comment;
+      feedbackCnt.innerText = reviewList[i].content;
+      let deletecontent = reviewList[i].content;
       ul.appendChild(feedbackCnt);
+ 
     }
   }
 })
@@ -132,64 +138,99 @@ cmnt.addEventListener("keyup", function(event){
 reply.addEventListener("click", CommentAdd);
 
 function CommentAdd(){
-  axios({
-    method: 'post',
-    url: '/comment/' + pageId,
-    data:{
-      "content": cmnt.value
-    },
-    headers: {
-      "Authorization": `Bearer ${token}`,
-    }
-  })
-  .then(function(result){
-    console.log('결과 : ', result);
-    const review = result.data.commentsPostResponse;
-    const feedback = document.querySelector(".feedback");
-    const ul = document.createElement("ul");
-    ul.classList.add("feedbackBox");
-    feedback.appendChild(ul);
-
-    const ol = document.createElement("ol");
-    ol.classList.add("otherNameBox");
-    ul.appendChild(ol);
-
-    const img = document.createElement("img");
-    img.classList.add("nien");
-    img.src = "../assets/comment.svg";
-    ol.appendChild(img);
-
-    const li = document.createElement("li");
-    li.id = "otherName";
-    li.innerText = review.writer;
-    ol.appendChild(li);
-
-    const div = document.createElement("div");
-    div.classList.add("a");
-    ol.appendChild(div);
-
-    const revise = document.createElement("a");
-    revise.id = "revise";
-    revise.innerText = "수정";
-    div.appendChild(revise);
-
-    const line = document.createElement("li");
-    line.id = "line";
-    div.appendChild(line);
-
-    const cmntDelete = document.createElement("a");
-    cmntDelete.id = "cmntDelete";
-    cmntDelete.innerText = "삭제";
-    div.appendChild(cmntDelete);
-
-    const feedbackCnt = document.createElement("li");
-    feedbackCnt.id = "feedbackCnt";
-    feedbackCnt.innerText = review.content;
-    ul.appendChild(feedbackCnt);
-    cmnt.value = "";
-  })
-  .catch(function(error){
-    console.error('에러 : ', error);
-  });
+  if(token !== ''){
+    axios({
+      method: 'post',
+      url: '/comment/' + pageId,
+      data:{
+        "content": cmnt.value
+      },
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      }
+    })
+    .then(function(result){
+      console.log('결과 : ', result);
+      location.href = "../reviewDetail/reviewDetail.html";
+      // const review = result.data;
+      // const feedback = document.querySelector(".feedback");
+      // const ul = document.createElement("ul");
+      // ul.classList.add("feedbackBox");
+      // feedback.appendChild(ul);
+  
+      // const ol = document.createElement("ol");
+      // ol.classList.add("otherNameBox");
+      // ul.appendChild(ol);
+  
+      // const img = document.createElement("img");
+      // img.classList.add("nien");
+      // img.src = "../assets/comment.svg";
+      // ol.appendChild(img);
+  
+      // const li = document.createElement("li");
+      // li.id = "otherName";
+      // li.innerText = review.nickname;
+      // ol.appendChild(li);
+  
+      // const div = document.createElement("div");
+      // div.classList.add("a");
+      // ol.appendChild(div);
+  
+      // const revise = document.createElement("a");
+      // revise.id = "revise";
+      // revise.innerText = "수정";
+      // div.appendChild(revise);
+  
+      // const line = document.createElement("li");
+      // line.id = "line";
+      // div.appendChild(line);
+  
+      // const cmntDelete = document.createElement("a");
+      // cmntDelete.id = "cmntDelete";
+      // cmntDelete.innerText = "삭제";
+      // cmntDelete.addEventListener("click", CommentNicknameContent);
+      // function CommentNicknameContent(){
+      //   CommentDelete(review.nickname, review.content);
+      // }
+      // div.appendChild(cmntDelete);
+  
+      // const feedbackCnt = document.createElement("li");
+      // feedbackCnt.id = "feedbackCnt";
+      // feedbackCnt.innerText = review.content;
+      // ul.appendChild(feedbackCnt);
+      // cmnt.value = "";
+    })
+    .catch(function(error){
+      console.error('에러 : ', error);
+    });
+  }else{
+    alert("로그인해주세여!");
+    location.href = "../login/login.html";
+  }
 }
 
+function CommentDelete(nicknamevalue, contentvalue, idvalue){
+  console.log(nicknamevalue, contentvalue, idvalue);
+  const ul = document.querySelectorAll(".feedbackBox");
+  ul[idvalue].remove();
+  if(idvalue == ''){
+    alert("새로고침해주세요...😭");
+  }else{
+    axios.delete('/comment',{
+      data: {
+        "nickname" : nicknamevalue,
+        "content" : contentvalue
+    },
+      headers: {
+          "Authorization" : `Bearer ${token}`,
+      }
+    })
+    .then(function(result){
+      console.log("결과 : ", result);
+      alert("댓글이 삭제되었습니다.");
+    })
+    .catch(function(error){
+      console.error("에러 : ", error);
+    });
+  }
+}
