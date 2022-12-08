@@ -1,5 +1,5 @@
 const searchInput = document.querySelector(".search");
-axios.defaults.baseURL = 'http://192.168.137.87:8081';
+axios.defaults.baseURL = 'http://192.168.241.107:8080';
 
 searchInput.addEventListener("keydown", search);
 
@@ -8,7 +8,7 @@ function search(){
         const deleteli = document.getElementsByTagName("li");
         deleteli.remove();
         let searchUrl = "'" + '/memoir/search?title=' + '"' + searchInput.value + '"' + "'";
-        axios.get('https://5540845b-638f-44d6-8017-aab2ea42f445.mock.pstmn.io/memoir')
+        axios.get(searchUrl)
         .then(function(result){
             console.log('통신 결과 : ', result);
 

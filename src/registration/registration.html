@@ -12,6 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <header>
@@ -19,7 +20,6 @@
         <div class="bata">
           <img src="../assets/Memoir.svg" class="logo" />
           <a href="../mainpage/main.html" class="bar1">회고록</a>
-          <a href="../Todo/Todo.html" class="bar2">할 일</a>
           <a href="../mypage/mypage.html" class="bar3">마이페이지</a>
         </div>
         <button
@@ -30,7 +30,7 @@
         </button>
       </div>
     </header>
-    <form action="" method="post">
+    <div class = form>
       <input
         type="text"
         id="title"
@@ -59,7 +59,7 @@
         </ul>
         <button type="submit" id="submit">등록하기</button>
       </article>
-    </form>
-    <script src="index.js"></script>
+    </div>
+    <script src="./registration.js"></script>
   </body>
 </html>
