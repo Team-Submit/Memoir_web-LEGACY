@@ -5,7 +5,7 @@ const signUpPasswordReInput = document.querySelector(".passwordCheckInput");
 const signUpWarntext = document.querySelectorAll(".warnText");
 const signUpInputDivs = document.querySelectorAll(".inputDiv");
 const signUpButton = document.querySelector(".signupButton");
-axios.defaults.baseURL = 'http://192.168.241.107:8080';
+axios.defaults.baseURL = 'http://192.168.241.156:8080';
 
 function inputWarnMaker(){
     switch(blankScanner()){

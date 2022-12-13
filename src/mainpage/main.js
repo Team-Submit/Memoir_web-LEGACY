@@ -1,7 +1,7 @@
 const loginbtn = document.querySelector(".loginbtn");
 const mypagebtn = document.querySelector(".mypage");
 const mainlist = document.querySelectorAll(".one");
-axios.defaults.baseURL = 'http://192.168.241.107:8080';
+axios.defaults.baseURL = 'http://192.168.241.156:8080';
 let token = localStorage.getItem('accessTkn') || '';
 localStorage.removeItem("PageId");
 

@@ -12,7 +12,7 @@ const newpw = document.getElementById("newpw");
 const newpwcheck = document.getElementById("newpwcheck");
 const textreg = document.querySelector(".textreg");
 let token = localStorage.getItem('accessTkn') || '';
-axios.defaults.baseURL = 'http://192.168.241.107:8080';
+axios.defaults.baseURL = 'http://192.168.241.156:8080';
 
 myifm.addEventListener("click", myopen);
 layout.addEventListener("click", myclose);
@@ -164,19 +164,24 @@ function myclose(){
     myifmodal.style.display = 'none';
 }
 function saveChange(){
-    axios.patch("/users/mypage", {
-        "nickName": namechange.value,
-	    "introduce": itrchange.value
-    }, {
-        Headers: {Authorization: token},
+    axios({
+        method: 'patch',
+        url: '/users/mypage',
+        data:{
+            "nickName": namechange.value,
+            "introduce": itrchange.value
+        },
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
     })
     .then(function(result){
         console.log('통신 결과 : ', result);
+        location.href = '../mypage/mypage.html';
     })
     .catch(function(error){
         console.error('error 발생 : ', error);
     });
-    location.href = '../mypage/mypage.html';
 }
 function pwopen(){
     layout.style.display = 'block';
@@ -193,18 +198,24 @@ function pwclose(){
 function pwchangego(){
 
     if(newpw.value == newpwcheck.value){
-        axios.patch("/users/mypage/update", {
-            "password": newpw.value
-        }, {
-            Headers: {Authorization: token},
+        axios({
+            method: 'patch',
+            url: '/users/mypage/update',
+            data:{
+                "password": lastpw.value,
+                "changePassword": newpw.value
+            },
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
         })
         .then(function(result){
             console.log('통신 결과 : ', result);
+            location.href = '../mypage/mypage.html';
         })
         .catch(function(error){
             console.error('error 발생 : ', error);
         });
-        location.href = '../mypage/mypage.html';
     }else{
         alert("새비밀번호가 일치하지않습니다.");
     }
