@@ -74,11 +74,11 @@ axios.get("comment/" + `${pageId}`)
   
       const ul = document.createElement("ul");
       ul.classList.add("feedbackBox");
-      // ul.id = reviewList[i].id;
-      // ul.addEventListener("click", idOnclick);
-      // function idOnclick(){
-      //   deletereview(ul.id);
-      // }
+      ul.id = reviewList[i].id;
+      ul.addEventListener("click", idOnclick);
+      function idOnclick(){
+        deletereview(ul.id);
+      }
       feedback.appendChild(ul);
   
       const ol = document.createElement("ol");
@@ -116,7 +116,6 @@ axios.get("comment/" + `${pageId}`)
       const feedbackCnt = document.createElement("li");
       feedbackCnt.id = "feedbackCnt";
       feedbackCnt.innerText = reviewList[i].content;
-      let deletecontent = reviewList[i].content;
       ul.appendChild(feedbackCnt);
  
     }
