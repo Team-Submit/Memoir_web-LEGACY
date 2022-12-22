@@ -10,7 +10,7 @@ const learned = document.getElementById("learned");
 const felt = document.getElementById("felt");
 const nextGoal = document.getElementById("nextGoal");
 
-axios.defaults.baseURL = 'http://192.168.241.156:8080';
+axios.defaults.baseURL = 'http://192.168.69.156:8080';
 
 axios.get('/memoir', {
   params: {
@@ -75,10 +75,6 @@ axios.get("comment/" + `${pageId}`)
       const ul = document.createElement("ul");
       ul.classList.add("feedbackBox");
       ul.id = reviewList[i].id;
-      ul.addEventListener("click", idOnclick);
-      function idOnclick(){
-        deletereview(ul.id);
-      }
       feedback.appendChild(ul);
   
       const ol = document.createElement("ol");
@@ -99,10 +95,6 @@ axios.get("comment/" + `${pageId}`)
       div.classList.add("a");
       ol.appendChild(div);
   
-      const revise = document.createElement("a");
-      revise.id = "revise";
-      revise.innerText = "수정";
-      div.appendChild(revise);
   
       const line = document.createElement("li");
       line.id = "line";
@@ -111,6 +103,10 @@ axios.get("comment/" + `${pageId}`)
       const cmntDelete = document.createElement("a");
       cmntDelete.id = "cmntDelete";
       cmntDelete.innerText = "삭제";
+      cmntDelete.addEventListener("click", idOnclick);
+      function idOnclick(){
+        CommentDelete(ul.id);
+      }
       div.appendChild(cmntDelete);
   
       const feedbackCnt = document.createElement("li");
@@ -151,53 +147,6 @@ function CommentAdd(){
     .then(function(result){
       console.log('결과 : ', result);
       location.href = "../reviewDetail/reviewDetail.html";
-      // const review = result.data;
-      // const feedback = document.querySelector(".feedback");
-      // const ul = document.createElement("ul");
-      // ul.classList.add("feedbackBox");
-      // feedback.appendChild(ul);
-  
-      // const ol = document.createElement("ol");
-      // ol.classList.add("otherNameBox");
-      // ul.appendChild(ol);
-  
-      // const img = document.createElement("img");
-      // img.classList.add("nien");
-      // img.src = "../assets/comment.svg";
-      // ol.appendChild(img);
-  
-      // const li = document.createElement("li");
-      // li.id = "otherName";
-      // li.innerText = review.nickname;
-      // ol.appendChild(li);
-  
-      // const div = document.createElement("div");
-      // div.classList.add("a");
-      // ol.appendChild(div);
-  
-      // const revise = document.createElement("a");
-      // revise.id = "revise";
-      // revise.innerText = "수정";
-      // div.appendChild(revise);
-  
-      // const line = document.createElement("li");
-      // line.id = "line";
-      // div.appendChild(line);
-  
-      // const cmntDelete = document.createElement("a");
-      // cmntDelete.id = "cmntDelete";
-      // cmntDelete.innerText = "삭제";
-      // cmntDelete.addEventListener("click", CommentNicknameContent);
-      // function CommentNicknameContent(){
-      //   CommentDelete(review.nickname, review.content);
-      // }
-      // div.appendChild(cmntDelete);
-  
-      // const feedbackCnt = document.createElement("li");
-      // feedbackCnt.id = "feedbackCnt";
-      // feedbackCnt.innerText = review.content;
-      // ul.appendChild(feedbackCnt);
-      // cmnt.value = "";
     })
     .catch(function(error){
       console.error('에러 : ', error);
@@ -208,28 +157,29 @@ function CommentAdd(){
   }
 }
 
-function CommentDelete(nicknamevalue, contentvalue, idvalue){
-  console.log(nicknamevalue, contentvalue, idvalue);
-  const ul = document.querySelectorAll(".feedbackBox");
-  ul[idvalue].remove();
-  if(idvalue == ''){
+function CommentDelete(commentId){
+  if(commentId == ''){
     alert("새로고침해주세요...😭");
   }else{
-    axios.delete('/comment',{
-      data: {
-        "nickname" : nicknamevalue,
-        "content" : contentvalue
-    },
+    axios({
+      method: 'delete',
+      url: '/comment/delete/' + commentId,
       headers: {
-          "Authorization" : `Bearer ${token}`,
+        "Authorization": `Bearer ${token}`
       }
-    })
+      })
     .then(function(result){
       console.log("결과 : ", result);
       alert("댓글이 삭제되었습니다.");
+      location.href = "reviewDetail.html";
     })
     .catch(function(error){
       console.error("에러 : ", error);
     });
   }
+}
+
+function CommentFix(commentId){
+  console.log(commentId);
+  
 }
