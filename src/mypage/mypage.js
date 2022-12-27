@@ -150,7 +150,7 @@ function addnewtext(){
 }
 
 function logoutgo(){
-    localStorage.removeItem("accessTkn");
+    localStorage.setItem("accessTkn", "");
     location.href = '../mainpage/main.html';
 }
 

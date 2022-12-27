@@ -56,11 +56,18 @@ function deletereview(){
   })
   .catch(function(error){
     console.error('error 발생 : ', error);
+    // alert("로그인을 해주세요");
+    // location.href = "../login/login.html";
   });
 }
 
 function reviewEdit(){
-  location.href = "../textFix/textFix.html";
+  if(token === ""){
+    alert("로그인해주세요");
+    location.href = "../login/login.html";
+  }else{
+    location.href = "../textFix/textFix.html";
+  }
 }
 
 
@@ -133,7 +140,6 @@ cmnt.addEventListener("keyup", function(event){
 reply.addEventListener("click", CommentAdd);
 
 function CommentAdd(){
-  if(token !== ''){
     axios({
       method: 'post',
       url: '/comment/' + pageId,
@@ -150,11 +156,9 @@ function CommentAdd(){
     })
     .catch(function(error){
       console.error('에러 : ', error);
+      alert("로그인을 해주세여!");
+      location.href = "../login/login.html";
     });
-  }else{
-    alert("로그인해주세여!");
-    location.href = "../login/login.html";
-  }
 }
 
 function CommentDelete(commentId){
@@ -175,11 +179,16 @@ function CommentDelete(commentId){
     })
     .catch(function(error){
       console.error("에러 : ", error);
+      alert("로그인을 해주세요!");
+      location.href = "../login/login.html";
     });
   }
 }
 
-function CommentFix(commentId){
-  console.log(commentId);
-  
+const my = document.querySelector(".textreg");
+const writebtn = document.querySelector(".bar3");
+
+if(token === ""){
+  my.style.display = "none";
+  writebtn.style.display = "none";
 }
