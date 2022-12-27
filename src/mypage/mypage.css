@@ -215,3 +215,21 @@ section{
     margin-top: 10px;
     cursor: pointer;
   }
+
+  .last, .lastOff{
+    position: absolute;
+    top: 105px;
+    left: 260px;
+  }
+
+  .new, .newOff{
+    position: absolute;
+    top: 155px;
+    left: 260px;
+  }
+
+  .newCheck, .newCheckOff{
+    position: absolute;
+    top: 205px;
+    left: 260px;
+  }
