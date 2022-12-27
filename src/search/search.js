@@ -1,15 +1,17 @@
+axios.defaults.baseURL = 'http://192.168.52.156:8080';
+
 const searchInput = document.querySelector(".search");
 const deleteList = document.querySelector(".list");
 
 searchInput.addEventListener("keyup", search);
 
-// function search(){
-//     if(window.event.keyCode == 13){
-//         load();
-//     }
-// }
-
 function search(){
+    if(window.event.keyCode == 13){
+        load();
+    }
+}
+
+function load(){
     console.log(searchInput.value);
     deleteList.textContent = "";
     axios.get("/memoir/search", {
@@ -77,4 +79,9 @@ function search(){
         console.error('error 발생 : ', error);
         alert("찾는 결과가 없습니다");
     });
+}
+
+function reviewDetail(idvalue){
+    localStorage.setItem("PageId", idvalue);
+    location.href = '../reviewDetail/reviewDetail.html';
 }
