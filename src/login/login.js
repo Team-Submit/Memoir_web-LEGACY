@@ -52,8 +52,8 @@ function loginServerPost(){
             location.href = "../mainpage/main.html";
         })
         .catch(function(error){
-            if(error.response.status===404) alert("아이디와 비밀번호를 확인해주세요");
-            else if(error.response.status===400) alert("알 수 없는 오류입니다. 고객센터는 없으니 어떡하죠")
+            if(error.response.status===404||error.response.status===401) alert("아이디와 비밀번호를 확인해주세요");
+            else if(error.response.status===400) alert("알 수 없는 오류입니다. 고객센터는 없으니 어떡하죠");
         });
     }
     else{
