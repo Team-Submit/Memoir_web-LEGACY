@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/Group 61.png">
+    <title>Memoir</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="mypage.css">
+    <link rel="stylesheet" href="../globalStyle.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="bata">
+          <img src="../assets/Memoir.svg" class="logo">
+          <a href="../mainpage/main.html" class="bar1">회고록</a>
+          <a href="" id="bar2">마이페이지</a>
+        </div>
+        <button class="textreg">글쓰기</button>
+      </div>
+    </header>
+    <div class="hidopen">
+      <div class="modalcontainer">
+        <div class="myifmodal">
+          <p class="pfc">내 정보 수정</p>
+          <input id="namechange">
+          <input id="itrchange" placeholder="반가워요 저는 프로필 설명을 쓰고 있어요">
+          <button id="save">저장</button>
+        </div>
+      </div>
+    </div>
+    <div class="pwhidopen">
+      <div class="modalcontainer">
+        <div class="pwmodal">
+          <p class="pwnickname"></p>
+          <p class="pwid"></p>
+          <input type="password" id="lastpw" placeholder="기존 비밀번호">
+          <input type="password" id="newpw" placeholder="새 비밀번호">
+          <input type="password" id="newpwcheck" placeholder="새 비밀번호 확인">
+          <button class="pwchange">비밀 번호 변경</button>
+          <img src="../assets/eye.png" class="last">
+          <img src="../assets/eye-off.png" class="lastOff">
+          <img src="../assets/eye.png" class="new">
+          <img src="../assets/eye-off.png" class="newOff">
+          <img src="../assets/eye.png" class="newCheck">
+          <img src="../assets/eye-off.png" class="newCheckOff">
+        </div>
+      </div>
+    </div>
+      <div class="modallayout"></div>
+      <section>
+        <div class="noenter">
+          <div class="mainifm">
+              <p class="ifmnickname"></p>
+              <p class="ifmid"></p>
+              <p class="ifmintroduce"></p>
+          </div>
+          <div class="changebtn">
+            <button id="myifm">내 정보 수정</button>
+            <button id="pwchange">비밀번호 변경</button>
+            <button id="logout">로그아웃</button>
+          </div>  
+          <div class="line"></div>
+          <div class="mytext">
+            <p class="mysee">내가 쓴 글</p>
+          </div>
+        </div>
+  
+        <ul class="list">
+  
+        </ul>
+      </section>
+    <script src="mypage.js"></script>
+  </body>
+</html>

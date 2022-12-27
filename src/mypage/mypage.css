@@ -1,0 +1,235 @@
+#bar2{
+    color: #4F4EED;
+}
+section{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.noenter{
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.mainifm{
+    display: flex;
+    flex-direction: column;
+}
+.ifmnickname{
+    font-size: 22px;
+    font-weight: bold;
+}
+.ifmid{
+    font-weight: bold;
+}
+.ifmintroduce{
+    font-size: 14px;
+    font-weight: 500;
+}
+.changebtn{
+    display: flex;
+    justify-content: space-between;
+    width: 280px;
+    margin-top: 15px;
+}
+.changebtn > button{
+    padding: 5px 10px 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #D4D4D4;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.line{
+    border-bottom: 1px solid #9C9C9C;
+    opacity: 0.2;
+    width: 1000px;
+    margin: 30px 0 15px 0;
+}
+.mytext{
+    display: flex;
+    justify-content: space-between;
+}
+.mysee{
+    font-size: 26px;
+    font-weight: bold;
+}
+.mydel{
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-color: #4F4EED;
+    color: white;
+    cursor: pointer;
+}
+  .list{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1030px;
+  }
+  li{
+    list-style: none;
+    border: 1px solid rgba(156, 156, 156, 0.2);
+    background-color: #F2F2F2;
+    width: 300px;
+    height: 150px;
+    border-radius: 5px;
+    margin: 10px;
+    padding-left: 20px;
+  }
+  li:hover{
+    border: 2px solid #4F60FF;
+    box-shadow: 0 0 4px rgba(79, 96, 255, 0.5);
+  }
+  .di{
+    width: 250px;
+  }
+  .title{
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .contents{
+    font-size: 12px;
+    color: #454545;
+    height: 50px;
+  }
+  .nida{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+  }
+  .date, .nickname{
+    font-size: 12px;
+  }
+  .nickname{
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  .write{
+    display: flex;
+  }
+  .data{
+    color: #757575;
+  }
+  .nickname{
+    color: #5E5E5E;
+  }
+  .modallayout{
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: none;
+  }
+  .hidopen{
+    display: none;
+  }
+  .modalcontainer{
+    display: flex;
+    justify-content: center;
+  }
+  .myifmodal{
+    width: 340px;
+    height: 250px;
+    background-color: #F5F5F5;
+    position: absolute;
+    top: 230px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+  }
+  .pfc{
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+  }
+  #namechange, #itrchange{
+    width: 270px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(156, 156, 156, 0.2);
+    padding: 10px;
+    outline: none;
+    margin-bottom: 10px;
+  }
+  #save{
+    width: 270px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    background-color: #4F60FF;
+    color: white;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+  .pwhidopen{
+    display: none;
+  }
+  .pwmodal{
+    width: 330px;
+    height: 320px;
+    background-color: #F5F5F5;
+    position: absolute;
+    top: 230px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+  }
+  .pwnickname{
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  .pwid{
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .pwmodal > input{
+    width: 270px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(156, 156, 156, 0.2);
+    padding: 10px;
+    outline: none;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .pwchange{
+    width: 270px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    background-color: #4F60FF;
+    color: white;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  .last, .lastOff{
+    position: absolute;
+    top: 105px;
+    left: 260px;
+  }
+
+  .new, .newOff{
+    position: absolute;
+    top: 155px;
+    left: 260px;
+  }
+
+  .newCheck, .newCheckOff{
+    position: absolute;
+    top: 205px;
+    left: 260px;
+  }

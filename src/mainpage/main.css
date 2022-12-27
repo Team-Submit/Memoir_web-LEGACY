@@ -1,0 +1,95 @@
+#bar1{
+  color: #4F60FF;
+}
+.loginbtn{
+  width: 80px;
+  border-radius: 5px;
+  height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #D4D4D4;
+  color: black;
+  border: 1px solid rgba(156, 156, 156, 0.2);
+}
+.mypage{
+  width: 80px;
+  border-radius: 5px;
+  height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #D4D4D4;
+  color: black;
+  border: 1px solid rgba(156, 156, 156, 0.2);
+  margin-right: 20px;
+}
+.loginbtn:hover{
+  background-color: #4F60FF;
+  border: none;
+  color: white;
+}
+.mypage:hover{
+  background-color: #4F60FF;
+  border: none;
+  color: white;
+}
+section{
+  display: flex;
+  justify-content: center;
+}
+.list{
+  display: flex;
+  flex-wrap: wrap;
+  width: 1030px;
+  margin-top: 80px;
+}
+.one{
+  list-style: none;
+  border: 1px solid rgba(156, 156, 156, 0.2);
+  background-color: #F2F2F2;
+  width: 320px;
+  height: 150px;
+  border-radius: 5px;
+  margin: 10px;
+  padding-left: 30px;
+  color: black;
+  text-decoration: none;
+}
+.one:hover{
+  border: 2px solid #4F60FF;
+  box-shadow: 0 0 4px rgba(79, 96, 255, 0.5);
+  cursor: pointer;
+}
+.di{
+  width: 250px;
+}
+.title{
+  font-weight: bold;
+  margin-top: 10px;
+}
+.contents{
+  font-size: 12px;
+  color: #454545;
+  height: 50px;
+  opacity: 0.7;
+}
+.nida{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.date, .nickname{
+  font-size: 12px;
+}
+.nickname{
+  font-weight: bold;
+  margin-right: 10px;
+}
+.write{
+  display: flex;
+}
+.data{
+  color: #757575;
+}
+.nickname{
+  color: #5E5E5E;  
+}
