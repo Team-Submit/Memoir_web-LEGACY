@@ -12,6 +12,12 @@ body {
   margin: 60px auto;
 }
 
+#topic {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
 input {
   width: 1000px;
   height: 40px;

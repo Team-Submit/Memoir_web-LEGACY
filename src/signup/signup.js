@@ -5,7 +5,7 @@ const signUpPasswordReInput = document.querySelector(".passwordCheckInput");
 const signUpWarntext = document.querySelectorAll(".warnText");
 const signUpInputDivs = document.querySelectorAll(".inputDiv");
 const signUpButton = document.querySelector(".signupButton");
-axios.defaults.baseURL = 'http://192.168.69.156:8080';
+axios.defaults.baseURL = 'http://192.168.52.156:8080';
 
 function inputWarnMaker(){
     switch(blankScanner()){
@@ -94,3 +94,40 @@ signUpPasswordReInput.addEventListener('change',function(){
 
 
 signUpButton.addEventListener("click",signUpServerPost);
+
+const eye = document.querySelector(".eye");
+const eyeOff = document.querySelector(".eyeOff");
+const checkEye = document.querySelector(".checkEye");
+const checkEyeOff = document.querySelector(".checkEyeOff");
+const pwInput = document.querySelector(".passwordInput");
+const checkPwInput = document.querySelector(".passwordCheckInput");
+
+eye.addEventListener("click", changEyeOff);
+eyeOff.addEventListener("click", changEye);
+
+function changEyeOff(){
+    eye.style.display = "none";
+    eyeOff.style.display = "block";
+    pwInput.type = "password";
+}
+
+function changEye(){
+    eye.style.display = "block";
+    eyeOff.style.display = "none";
+    pwInput.type = "text";
+}
+
+checkEye.addEventListener("click", checkchangEyeOff);
+checkEyeOff.addEventListener("click", checkchangEye);
+
+function checkchangEyeOff(){
+    checkEye.style.display = "none";
+    checkEyeOff.style.display = "block";
+    checkPwInput.type = "password";
+}
+
+function checkchangEye(){
+    checkEye.style.display = "block";
+    checkEyeOff.style.display = "none";
+    checkPwInput.type = "text";
+}

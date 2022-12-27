@@ -1,29 +1,27 @@
-const loginbtn = document.querySelector(".loginbtn");
-const mypagebtn = document.querySelector(".mypage");
-const mainlist = document.querySelectorAll(".one");
-axios.defaults.baseURL = 'http://192.168.52.156:8080';
-let token = localStorage.getItem('accessTkn') || '';
-localStorage.removeItem("PageId");
+const searchInput = document.querySelector(".search");
+const deleteList = document.querySelector(".list");
 
-axios.get('/memoir/list')
-.then(function(result){
-    console.log('통신 결과 : ', result);
+searchInput.addEventListener("keyup", search);
 
-    if(token !== ''){
-        loginbtn.innerText = "글쓰기";
-        loginbtn.addEventListener("click", registrationgo);
-        mypagebtn.style.display = 'inline-block';
-        mypagebtn.addEventListener("click", mypagego);
-    }else{
-        loginbtn.addEventListener("click", logingo);
-        mypagebtn.style.display = 'none';
-    }
+// function search(){
+//     if(window.event.keyCode == 13){
+//         load();
+//     }
+// }
 
-    const memoirList = result.data;
-    
-    memoirList.reverse(); //만약에 순서가 반대로 되면 사용하기 
+function search(){
+    console.log(searchInput.value);
+    deleteList.textContent = "";
+    axios.get("/memoir/search", {
+        params:{
+            "keyword": searchInput.value
+        }
+    })
+    .then(function(result){
+        console.log('통신 결과 : ', result);
 
-    if(memoirList){
+        const memoirList = result.data;
+
         for(i = 0; i < memoirList.length; i++){
             let contents = memoirList[i].goal + memoirList[i].learned + memoirList[i].felt + memoirList[i].nextGoal;
     
@@ -74,28 +72,9 @@ axios.get('/memoir/list')
             nickname.innerText = memoirList[i].nickName;
             write.appendChild(nickname);
         }
-    }
-
-    
-    
-})
-.catch(function(error){
-    console.error('error 발생 : ', error);
-});
-
-function logingo(){
-    location.href = '../login/login.html';
-}
-
-function mypagego(){
-    location.href = '../mypage/mypage.html';
-}
-
-function reviewDetail(idvalue){
-    localStorage.setItem("PageId", idvalue);
-    location.href = '../reviewDetail/reviewDetail.html';
-}
-
-function registrationgo(){
-    location.href = '../registration/registration.html';
+    })
+    .catch(function(error){
+        console.error('error 발생 : ', error);
+        alert("찾는 결과가 없습니다");
+    });
 }

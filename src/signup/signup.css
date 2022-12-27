@@ -24,7 +24,7 @@
 .title{
   font-weight: 700;
   font-size: 36px;
-  margin-top: 30px;
+  margin: 30px 0;
 }
 .inputDiv{
   background: #FFFFFF;
@@ -86,4 +86,34 @@
 .warnborder{
   border: 2px solid red !important;
   transition: border 0.25s;
+}
+
+.eye, .eyeOff{
+  position: absolute;
+  top: 295px;
+  left: 390px;
+  cursor: pointer;
+}
+
+.checkEye, .checkEyeOff{
+  position: absolute;
+  top: 377px;
+  left: 390px;
+  cursor: pointer;
+}
+
+.eye{
+  display: none;
+}
+
+.eyeOff{
+  display: block;
+}
+
+.checkEye{
+  display: none;
+}
+
+.checkEyeOff{
+  display: block;
 }

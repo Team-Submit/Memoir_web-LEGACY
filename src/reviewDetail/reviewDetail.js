@@ -10,7 +10,7 @@ const learned = document.getElementById("learned");
 const felt = document.getElementById("felt");
 const nextGoal = document.getElementById("nextGoal");
 
-axios.defaults.baseURL = 'http://192.168.69.156:8080';
+axios.defaults.baseURL = 'http://192.168.52.156:8080';
 
 axios.get('/memoir', {
   params: {
@@ -40,10 +40,10 @@ const deletebtn = document.getElementById("delete");
 edit.addEventListener("click", reviewEdit);
 deletebtn.addEventListener("click", deletereview);
 
-function deletereview(CommentId){
+function deletereview(){
   axios.delete('/memoir',{
       params: {
-        "memoirId": CommentId
+        "memoirId": pageId
     },
       headers: {
           "Authorization" : `Bearer ${token}`,

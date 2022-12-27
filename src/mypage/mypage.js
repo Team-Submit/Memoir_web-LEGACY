@@ -12,7 +12,7 @@ const newpw = document.getElementById("newpw");
 const newpwcheck = document.getElementById("newpwcheck");
 const textreg = document.querySelector(".textreg");
 let token = localStorage.getItem('accessTkn') || '';
-axios.defaults.baseURL = 'http://192.168.69.156:8080';
+axios.defaults.baseURL = 'http://192.168.52.156:8080';
 
 myifm.addEventListener("click", myopen);
 layout.addEventListener("click", myclose);
@@ -22,6 +22,8 @@ pwchangebtn.addEventListener("click", pwchangego);
 layout.addEventListener("click", pwclose);
 textreg.addEventListener("click", addnewtext);
 logout.addEventListener("click", logoutgo);
+
+localStorage.removeItem("PageId");
 
 function tokencheck(){
     if(token === ''){
@@ -91,6 +93,7 @@ axios.get('/memoir/mypage', {
             li.addEventListener("click", idOnclick);
             function idOnclick(){
                 reviewDetail(li.id);
+                // console.log(li.id);
             }
     
             const di = document.createElement("div");
@@ -129,8 +132,6 @@ axios.get('/memoir/mypage', {
             nickname.classList.add("nickname");
             nickname.innerText = mypagememoirList[i].nickName;
             write.appendChild(nickname);
-    
-            li.addEventListener("click", reviewDetail);
         }
     }
 })

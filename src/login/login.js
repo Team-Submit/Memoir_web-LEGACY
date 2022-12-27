@@ -7,7 +7,7 @@ const loginPasswordDiv = document.getElementById("passwordInputDiv");
 const loginInputWarn = document.getElementsByClassName("warnText");
 
 const loginMoveToSignUp = document.getElementById("signupButton");
-axios.defaults.baseURL = 'http://192.168.69.156:8080';
+axios.defaults.baseURL = 'http://192.168.52.156:8080';
 
 /** ID&비밀번호 내용이 있는지를 구분해 경고 주는 팡션 */
 function inputWarnMaker(){
@@ -73,3 +73,22 @@ loginPasswordInput.addEventListener('change',function(){
 
 loginLoginBtn.addEventListener('click',loginServerPost);
 loginMoveToSignUp.addEventListener("click",function(){location.href = "../signup/signup.html";});
+
+const eye = document.querySelector(".eye");
+const eyeOff = document.querySelector(".eye-off");
+const pwInput = document.getElementById("passwordInput");
+
+eye.addEventListener("click", changEyeOff);
+eyeOff.addEventListener("click", changEye);
+
+function changEye(){
+    eye.style.display = "block";
+    eyeOff.style.display = "none";
+    pwInput.type = "text";
+}
+
+function changEyeOff(){
+    eye.style.display = "none";
+    eyeOff.style.display = "block";
+    pwInput.type = "password";
+}
