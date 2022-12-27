@@ -59,7 +59,7 @@ function inputCheck(){
         method: 'patch',
         url: '/memoir/update',
         params:{
-          "memoirId": pageid
+          "memoirId": pageId
         },
         data:{
           "title": title.value,
