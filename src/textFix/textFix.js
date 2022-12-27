@@ -1,7 +1,7 @@
 axios.defaults.baseURL = 'http://192.168.52.156:8080';
 
 const tokken = localStorage.getItem("accessTkn");
-const pageid = localStorage.getItem("PageId");
+const pageId = localStorage.getItem("PageId");
 
 const title = document.getElementById('title');
 const goal = document.getElementById('goal');
@@ -13,6 +13,25 @@ const fixBtn = document.getElementById('fix');
 fixBtn.addEventListener("click", Fixchange);
 
 const textValue = "";
+
+axios.get('/memoir', {
+  params:{
+    "memoirId" : pageId
+  }
+})
+.then(function(result){
+  console.log('결과 : ', result);
+
+  const FixGet = result.data;
+  title.value = FixGet.title;
+  goal.value = FixGet.goal;
+  learned.value = FixGet.learned;
+  felt.value = FixGet.felt;
+  nextGoal.value = FixGet.nextGoal;
+})
+.catch(function(error){
+  console.error('error 발생 : ', error);
+})
 
 function Fixchange(){
   inputCheck();
